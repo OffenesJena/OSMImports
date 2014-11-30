@@ -14,8 +14,8 @@ In the next step we tell the query which node, ways or relations to include into
 
 The plain JSON result will be stored and converted into the more common GeoJSON format.
 	
-    ToFile       ("route.tram.json").
-    ToGeoJSONFile("route.tram.geojson").
+    ToFile       ("trams.json").
+    ToGeoJSONFile("trams.geojson").
 	
 Normally everything is async, but be aware of HTTP status code 429 ;)
 	
