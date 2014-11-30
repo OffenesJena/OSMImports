@@ -50,6 +50,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             Directory.CreateDirectory("Strassen");
             Directory.CreateDirectory("ÖffentlicherNahverkehr");
             Directory.CreateDirectory("Tempolimits");
+            Directory.CreateDirectory("Energie");
 
             var JenaId = new OverpassQuery("Jena").AreaId;
 
@@ -99,6 +100,12 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             #region Tempolimits
 
             new OverpassQuery(JenaId).
+                WithNodes    ("highway", "speed_camera").
+                ToFile       ("Tempolimits/Blitzer.json").
+                ToGeoJSONFile("Tempolimits/Blitzer.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "5").
                 ToFile       ("Tempolimits/Tempo5.json").
@@ -145,6 +152,106 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 And          ("maxspeed", "50").
                 ToFile       ("Tempolimits/Tempo50.json").
                 ToGeoJSONFile("Tempolimits/Tempo50.geojson").
+                RunNow();
+
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "60").
+                ToFile       ("Tempolimits/Tempo60.json").
+                ToGeoJSONFile("Tempolimits/Tempo60.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "70").
+                ToFile       ("Tempolimits/Tempo70.json").
+                ToGeoJSONFile("Tempolimits/Tempo70.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "80").
+                ToFile       ("Tempolimits/Tempo80.json").
+                ToGeoJSONFile("Tempolimits/Tempo80.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "90").
+                ToFile       ("Tempolimits/Tempo90.json").
+                ToGeoJSONFile("Tempolimits/Tempo90.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "100").
+                ToFile       ("Tempolimits/Tempo100.json").
+                ToGeoJSONFile("Tempolimits/Tempo100.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "110").
+                ToFile       ("Tempolimits/Tempo110.json").
+                ToGeoJSONFile("Tempolimits/Tempo110.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "120").
+                ToFile       ("Tempolimits/Tempo120.json").
+                ToGeoJSONFile("Tempolimits/Tempo120.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithWays     ("highway").
+                And          ("maxspeed", "130").
+                ToFile       ("Tempolimits/Tempo130.json").
+                ToGeoJSONFile("Tempolimits/Tempo130.geojson").
+                RunNow();
+
+            #endregion
+
+            #region Energie
+
+            // highway (nodes/relations)
+
+            new OverpassQuery(JenaId).
+                WithNodes    ("power", "generator").
+                WithWays     ("power", "generator").
+
+                WithNodes    ("power", "plant").
+                WithWays     ("power", "plant").
+
+                WithNodes    ("power", "station").
+                WithNodes    ("power", "sub_station").
+                WithNodes    ("power", "sub_station").
+                WithWays     ("power", "station").
+                WithWays     ("power", "substation").
+                WithWays     ("power", "sub_station").
+
+                WithNodes    ("power", "switch").
+                WithNodes    ("power", "switchgear").
+                WithWays     ("power", "switch").
+                WithWays     ("power", "switchgear").
+
+                WithNodes    ("power", "transformer").
+                WithWays     ("power", "transformer").
+
+                ToFile       ("Energie/Strom.json").
+                ToGeoJSONFile("Energie/Strom.geojson").
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithNodes    ("power", "pole").
+                WithNodes    ("power", "tower").
+                WithNodes    ("power", "cable_distribution_cabinet").
+                WithWays     ("power", "minor_line").
+                WithWays     ("power", "line").
+                WithWays     ("power", "lines").
+                ToFile       ("Energie/Stromleitungen.json").
+                ToGeoJSONFile("Energie/Stromleitungen.geojson").
                 RunNow();
 
             #endregion
@@ -687,7 +794,6 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 RunNow();
 
             #endregion
-
 
 
             Console.WriteLine("ready...");

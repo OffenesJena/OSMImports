@@ -62,19 +62,19 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         /// <summary>
         /// The URI of the OverpassAPI.
         /// </summary>
-        public static readonly Uri                  OverpassAPI_URI  = new Uri("http://overpass-api.de/api/interpreter");
+        public static readonly Uri                          OverpassAPI_URI  = new Uri("http://overpass-api.de/api/interpreter");
 
         /// <summary>
         /// The URI of the NominatimAPI.
         /// </summary>
-        public static readonly Uri                  NominatimAPI_URI = new Uri("http://nominatim.openstreetmap.org/search");
+        public static readonly Uri                          NominatimAPI_URI = new Uri("http://nominatim.openstreetmap.org/search");
 
 
-        private QueryContext                        CurrentContext;
+        private QueryContext                                CurrentContext;
 
-        private List<KeyValuePair<String, String>>  Nodes;
-        private List<KeyValuePair<String, String>>  Ways;
-        private List<KeyValuePair<String, String>>  Relations;
+        private List<List<KeyValuePair<String, String>>>    Nodes;
+        private List<List<KeyValuePair<String, String>>>    Ways;
+        private List<List<KeyValuePair<String, String>>>    Relations;
 
         #endregion
 
@@ -167,9 +167,9 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 
             CurrentContext  = QueryContext.none;
 
-            Nodes           = new List<KeyValuePair<String, String>>();
-            Ways            = new List<KeyValuePair<String, String>>();
-            Relations       = new List<KeyValuePair<String, String>>();
+            Nodes           = new List<List<KeyValuePair<String, String>>>();
+            Ways            = new List<List<KeyValuePair<String, String>>>();
+            Relations       = new List<List<KeyValuePair<String, String>>>();
 
         }
 
@@ -320,9 +320,9 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         public OverpassQuery WithAny(String Type, String Value = "")
         {
 
-            Nodes.    Add(new KeyValuePair<String, String>(Type, Value));
-            Ways.     Add(new KeyValuePair<String, String>(Type, Value));
-            Relations.Add(new KeyValuePair<String, String>(Type, Value));
+            Nodes.    Add(new List<KeyValuePair<String, String>>() { new KeyValuePair<String, String>(Type, Value) });
+            Ways.     Add(new List<KeyValuePair<String, String>>() { new KeyValuePair<String, String>(Type, Value) });
+            Relations.Add(new List<KeyValuePair<String, String>>() { new KeyValuePair<String, String>(Type, Value) });
 
             CurrentContext = QueryContext.Any;
 
@@ -342,7 +342,7 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         public OverpassQuery WithNodes(String NodeType, String Value = "")
         {
 
-            Nodes.Add(new KeyValuePair<String, String>(NodeType, Value));
+            Nodes.Add(new List<KeyValuePair<String, String>>() { new KeyValuePair<String, String>(NodeType, Value) });
 
             CurrentContext = QueryContext.Nodes;
 
@@ -362,7 +362,7 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         public OverpassQuery WithWays(String WayType, String Value = "")
         {
 
-            Ways.Add(new KeyValuePair<String, String>(WayType, Value));
+            Ways.Add(new List<KeyValuePair<String, String>>() { new KeyValuePair<String, String>(WayType, Value) });
 
             CurrentContext = QueryContext.Ways;
 
@@ -382,7 +382,7 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         public OverpassQuery WithRelations(String RelationType, String Value = "")
         {
 
-            Relations.Add(new KeyValuePair<String, String>(RelationType, Value));
+            Relations.Add(new List<KeyValuePair<String, String>>() { new KeyValuePair<String, String>(RelationType, Value) });
 
             CurrentContext = QueryContext.Relations;
 
@@ -407,10 +407,13 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 
                 case QueryContext.none:         throw new Exception("Bad request!");
 
-                case QueryContext.Any:          WithAny      (Type, Value); break;
-                case QueryContext.Nodes:        WithNodes    (Type, Value); break;
-                case QueryContext.Ways:         WithWays     (Type, Value); break;
-                case QueryContext.Relations:    WithRelations(Type, Value); break;
+                case QueryContext.Nodes:        Nodes.    Last().Add(new KeyValuePair<String, String>(Type, Value)); break;
+                case QueryContext.Ways:         Ways.     Last().Add(new KeyValuePair<String, String>(Type, Value)); break;
+                case QueryContext.Relations:    Relations.Last().Add(new KeyValuePair<String, String>(Type, Value)); break;
+
+                case QueryContext.Any:          Nodes.    Last().Add(new KeyValuePair<String, String>(Type, Value));
+                                                Ways.     Last().Add(new KeyValuePair<String, String>(Type, Value));
+                                                Relations.Last().Add(new KeyValuePair<String, String>(Type, Value)); break;
 
             }
 
@@ -618,13 +621,13 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
             QueryString.AppendLine("(");
 
             if (Nodes.Count > 0)
-                QueryString.AppendLine(FormatQuery("node",     Nodes));
+                Nodes.    ForEach(Node     => QueryString.AppendLine(FormatQuery("node",     Node)));
 
             if (Ways.Count > 0)
-                QueryString.AppendLine(FormatQuery("way",      Ways));
+                Ways.     ForEach(Way      => QueryString.AppendLine(FormatQuery("way",      Way)));
 
             if (Relations.Count > 0)
-                QueryString.AppendLine(FormatQuery("relation", Relations));
+                Relations.ForEach(Relation => QueryString.AppendLine(FormatQuery("relation", Relation)));
 
             QueryString.AppendLine(");");
 
