@@ -41,16 +41,16 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
         public static void Main(String[] Arguments)
         {
 
+            Directory.CreateDirectory("ÖffentlicherNahverkehr");
+            Directory.CreateDirectory("Strassen");
+            Directory.CreateDirectory("Tempolimits");
+            Directory.CreateDirectory("Energie");
             Directory.CreateDirectory("Flächennutzung");
             Directory.CreateDirectory("Flächennutzung/Grünfläche");
             Directory.CreateDirectory("Flächennutzung/Wasser");
             Directory.CreateDirectory("Flächennutzung/Gewerbe");
             Directory.CreateDirectory("Flächennutzung/Wohngebiete");
             Directory.CreateDirectory("Flächennutzung/Militär");
-            Directory.CreateDirectory("Strassen");
-            Directory.CreateDirectory("ÖffentlicherNahverkehr");
-            Directory.CreateDirectory("Tempolimits");
-            Directory.CreateDirectory("Energie");
 
             var JenaId = new OverpassQuery("Jena").AreaId;
 

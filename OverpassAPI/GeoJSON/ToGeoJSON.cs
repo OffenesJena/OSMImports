@@ -342,6 +342,10 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
             //     }
             // }
 
+            var FirstNode = Way.Nodes.First();
+            var LastNode  = Way.Nodes.Last();
+            var isClosed  = FirstNode.Latitude == LastNode.Latitude && FirstNode.Longitude == LastNode.Longitude;
+
             return new JObject(
 
                 new JProperty("type", "Feature"),
@@ -354,8 +358,9 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
                     )),
 
                 new JProperty("geometry", new JObject(
-                    new JProperty("type", "LineString"),
-                    new JProperty("coordinates", new JArray(Way.Nodes.Select(n => new JArray(n.Longitude, n.Latitude))))
+                    new JProperty("type",         isClosed ? "Polygon" : "LineString"),
+                    new JProperty("coordinates",  isClosed ? new JArray() { new JArray(Way.Nodes.Select(n => new JArray(n.Longitude, n.Latitude))) }
+                                                           : new JArray(Way.Nodes.Select(n => new JArray(n.Longitude, n.Latitude))))
                 ))
 
             );
