@@ -41,6 +41,8 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 
         #region Documentation
 
+        // http://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL
+
         // A Overpass query example...
         // 
         // [out:json]

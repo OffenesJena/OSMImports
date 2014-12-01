@@ -87,14 +87,14 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         public readonly String                  Generator;
 
         /// <summary>
-        /// The version of the result data structure.
+        /// OSM timestamp.
         /// </summary>
         public readonly DateTime                timestamp_osm_base;
 
         /// <summary>
-        /// The generator of the result.
+        /// Area timestamp.
         /// </summary>
-        public readonly DateTime                timestamp_areas_base;
+        public readonly DateTime?               timestamp_areas_base;
 
         /// <summary>
         /// The copyright of the result.
@@ -128,7 +128,7 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
             Generator             = Result["generator"].ToString();
             Copyright             = Result["osm3s"]["copyright"].ToString();
             timestamp_osm_base    = DateTime.Parse(Result["osm3s"]["timestamp_osm_base"].ToString());
-            timestamp_areas_base  = DateTime.Parse(Result["osm3s"]["timestamp_areas_base"].ToString());
+            timestamp_areas_base  = Result["osm3s"]["timestamp_areas_base"] != null ? new Nullable<DateTime>(DateTime.Parse(Result["osm3s"]["timestamp_areas_base"].ToString())) : null;
             Elements              = Result["elements"]. Children<JObject>().ToArray();
         }
 
@@ -147,9 +147,13 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
             return new JObject(new JProperty("version",    Version),
                                new JProperty("generator",  Generator),
                                new JProperty("osm3s", new JObject(
-                                   new JProperty("timestamp_osm_base",    timestamp_osm_base.ToIso8601()),
-                                   new JProperty("timestamp_areas_base",  timestamp_areas_base.ToIso8601()),
-                                   new JProperty("copyright",             Copyright)
+                                   new JProperty[] {
+                                       new JProperty("timestamp_osm_base",    timestamp_osm_base.ToIso8601()),
+                                       timestamp_areas_base.HasValue
+                                           ? new JProperty("timestamp_areas_base",  timestamp_areas_base.Value.ToIso8601())
+                                           : null,
+                                       new JProperty("copyright",             Copyright)
+                                   }.Where(v => v != null).ToArray()
                                )),
                                new JProperty("elements",    new JArray(Elements)));
 

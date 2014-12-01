@@ -31,6 +31,59 @@ using org.GraphDefined.Vanaheimr.Illias;
 namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 {
 
+    public struct GeoCoord : IEquatable<GeoCoord>
+    {
+
+        public Double Longitude;
+        public Double Latitude;
+
+        public GeoCoord(Double _Longitude, Double _Latitude)
+        {
+            Longitude = _Longitude;
+            Latitude = _Latitude;
+        }
+
+        public override Boolean Equals(object obj)
+        {
+
+            var other = (GeoCoord) obj;
+
+            if (Longitude != other.Longitude)
+                return false;
+
+            if (Latitude != other.Latitude)
+                return false;
+
+            return true;
+
+        }
+
+        public override Int32 GetHashCode()
+        {
+            return Longitude.GetHashCode() ^ Latitude.GetHashCode();
+        }
+
+        public override String ToString()
+        {
+            return Longitude.ToString() + ", " + Latitude.ToString();
+        }
+
+        public Boolean Equals(GeoCoord other)
+        {
+
+            if (Latitude != other.Latitude)
+                return false;
+
+            if (Longitude != other.Longitude)
+                return false;
+
+            return true;
+
+        }
+
+    }
+
+
     /// <summary>
     /// Convert the OSM JSON result of an Overpass query to GeoJSON.
     /// </summary>
@@ -342,6 +395,8 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
             //     }
             // }
 
+            // https://wiki.openstreetmap.org/wiki/Overpass_turbo/Polygon_Features
+
             var FirstNode = Way.Nodes.First();
             var LastNode  = Way.Nodes.Last();
             var isClosed  = FirstNode.Latitude == LastNode.Latitude && FirstNode.Longitude == LastNode.Longitude;
@@ -390,23 +445,83 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
             //     }
             // }
 
-            return new JObject(
+            // https://wiki.openstreetmap.org/wiki/Overpass_turbo/Polygon_Features
 
-                new JProperty("type", "Feature"),
-                new JProperty("id", "rel/" + Relation.Id),
+            // 1) Combine all ways into a single big list of geo coordinate (it's a puzzle! Some ways must be reversed in order to find matches!)
+            // 2) Check if first geo coordinate is the same as the last
+            // 3) If yes => polygon (exceptions see wiki link)
 
-                new JProperty("properties", new JObject(
-                        new List<JProperty>() { new JProperty("@id", "rel/" + Relation.Id) }.
-                        AddAndReturnList(Relation.Tags.Select(kvp => new JProperty(kvp.Key, kvp.Value))).
-                        ToArray()
-                    )),
 
-                new JProperty("geometry", new JObject(
-                    new JProperty("type",         "MultiLineString"),
-                    new JProperty("coordinates",  new JArray(Relation.Ways.Select(Way => new JArray(Way.Nodes.Select(Node => new JArray(Node.Longitude, Node.Latitude))))))
-                ))
+            // Relation.Ways.Select(Way => new JArray(Way.Nodes.Select(Node => new JArray(Node.Longitude, Node.Latitude))))
 
-            );
+            var AllElements = Relation.Ways.Select(Way => Way.Nodes.Select(Node => new GeoCoord(Node.Longitude, Node.Latitude)).ToArray()).ToArray();
+
+            var FirstElement = new List<GeoCoord>(AllElements.First());
+            var Rest         = AllElements.Skip(1).ToList();
+            Boolean Found;
+
+            do
+            {
+
+                Found = false;
+                var Element = FirstElement.Last();
+
+                foreach (var r1 in Rest)
+                {
+                    if (r1.First().Equals(Element))
+                    {
+                        Rest.Remove(r1);
+                        FirstElement.AddRange(r1);
+                        Found = true;
+                        break;
+                    }
+                    else if (r1.Last().Equals(Element))
+                    {
+                        Rest.Remove(r1);
+                        FirstElement.AddRange(r1.Reverse());
+                        Found = true;
+                        break;
+                    }
+                }
+
+                if (!Found)
+                {
+                    Console.WriteLine("Broken OSM relation to GeoJSON export?");
+                    break;
+                }
+
+            } while (Rest.Count > 0);
+
+
+            var FirstNode = FirstElement.First();
+            var LastNode  = FirstElement.Last();
+            var isClosed  = FirstNode.Latitude == LastNode.Latitude && FirstNode.Longitude == LastNode.Longitude;
+
+
+                return new JObject(
+
+                    new JProperty("type", "Feature"),
+                    new JProperty("id", "relation/" + Relation.Id),
+
+                    new JProperty("properties", new JObject(
+                            new List<JProperty>() { new JProperty("@id", "relation/" + Relation.Id) }.
+                            AddAndReturnList(Relation.Tags.Select(kvp => new JProperty(kvp.Key, kvp.Value))).
+                            ToArray()
+                        )),
+
+                        (!Found | !isClosed)?
+                    new JProperty("geometry", new JObject(
+                        new JProperty("type",        "MultiLineString"),
+                        new JProperty("coordinates", new JArray(Relation.Ways.Select(Way => new JArray(Way.Nodes.Select(Node => new JArray(Node.Longitude, Node.Latitude))))))
+                    ))
+
+                    :
+                    new JProperty("geometry", new JObject(
+                        new JProperty("type",        "Polygon"),
+                        new JProperty("coordinates", new JArray() { new JArray(FirstElement.Select(e2 => new JArray(e2.Longitude, e2.Latitude))) })
+                    ))
+
+                );
 
         }
 

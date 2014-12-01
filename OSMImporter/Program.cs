@@ -41,6 +41,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
         public static void Main(String[] Arguments)
         {
 
+            Directory.CreateDirectory("Bundestagswahlkreise");
+            Directory.CreateDirectory("Ortsteile");
             Directory.CreateDirectory("ÖffentlicherNahverkehr");
             Directory.CreateDirectory("Strassen");
             Directory.CreateDirectory("Tempolimits");
@@ -57,6 +59,30 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             //new OverpassQuery(JenaId).
             //    WithNodes("leisure", "hackerspace").
             //    ToFile("hackerspaces.json");
+
+            #region Bundestagswahlkreise
+
+            new OverpassQuery().
+                WithRelations("boundary", "political").
+                And          ("name",     "Gera - Jena - Saale-Holzland-Kreis").
+                ToFile       ("Bundestagswahlkreise/Bundestagswahlkreise.json").
+                ToGeoJSONFile("Bundestagswahlkreise/Bundestagswahlkreise.geojson").
+                RunNow();
+
+            #endregion
+
+            #region Ortsteile
+
+            new OverpassQuery(JenaId).
+                WithRelations("boundary",    "administrative").
+                And          ("admin_level", "9").
+                WithRelations("boundary",    "administrative").
+                And          ("name",        "Ilmnitz").        // Should be fixed within the OSM soon!
+                ToFile       ("Ortsteile/Ortsteile.json").
+                ToGeoJSONFile("Ortsteile/Ortsteile.geojson").
+                RunNow();
+
+            #endregion
 
             #region Öffentlicher Nahverkehr
 
@@ -265,39 +291,39 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             // leisure  = garden, golf_course, nature_reserve, park, pitch, village_green, recreation_ground, playground, wildlife_hide
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "farm").
-                ToFile("Flächennutzung/Grünfläche/landuse.farm.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "farm").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.farm.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farm.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "farmyard").
-                ToFile("Flächennutzung/Grünfläche/landuse.farmyard.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "farmyard").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.farmyard.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farmyard.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "farmland").
-                ToFile("Flächennutzung/Grünfläche/landuse.farmland.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "farmland").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.farmland.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farmland.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "forest").
-                ToFile("Flächennutzung/Grünfläche/landuse.forest.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "forest").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.forest.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.forest.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "garden").
-                ToFile("Flächennutzung/Grünfläche/landuse.garden.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "garden").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.garden.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.garden.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "grass").
-                ToFile("Flächennutzung/Grünfläche/landuse.grass.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "grass").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.grass.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.grass.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
@@ -313,9 +339,9 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "meadow").
-                ToFile("Flächennutzung/Grünfläche/landuse.meadow.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "meadow").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.meadow.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.meadow.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
@@ -337,9 +363,9 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 RunNow();
 
             new OverpassQuery(JenaId).
-                WithAny("landuse", "allotments").
-                ToFile("Flächennutzung/Grünfläche/landuse.allotments.json").
-                ToGeoJSON().
+                WithAny      ("landuse", "allotments").
+                ToFile       ("Flächennutzung/Grünfläche/landuse.allotments.json").
+                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.allotments.geojson").
                 RunNow();
 
             new OverpassQuery(JenaId).
