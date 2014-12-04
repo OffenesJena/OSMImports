@@ -31,59 +31,6 @@ using org.GraphDefined.Vanaheimr.Illias;
 namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 {
 
-    public struct GeoCoord : IEquatable<GeoCoord>
-    {
-
-        public Double Longitude;
-        public Double Latitude;
-
-        public GeoCoord(Double _Longitude, Double _Latitude)
-        {
-            Longitude = _Longitude;
-            Latitude = _Latitude;
-        }
-
-        public override Boolean Equals(object obj)
-        {
-
-            var other = (GeoCoord) obj;
-
-            if (Longitude != other.Longitude)
-                return false;
-
-            if (Latitude != other.Latitude)
-                return false;
-
-            return true;
-
-        }
-
-        public override Int32 GetHashCode()
-        {
-            return Longitude.GetHashCode() ^ Latitude.GetHashCode();
-        }
-
-        public override String ToString()
-        {
-            return Longitude.ToString() + ", " + Latitude.ToString();
-        }
-
-        public Boolean Equals(GeoCoord other)
-        {
-
-            if (Latitude != other.Latitude)
-                return false;
-
-            if (Longitude != other.Longitude)
-                return false;
-
-            return true;
-
-        }
-
-    }
-
-
     /// <summary>
     /// Convert the OSM JSON result of an Overpass query to GeoJSON.
     /// </summary>
@@ -311,10 +258,28 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         #endregion
 
 
-        #region ToGeoJSONFile(this ResultTask)
+        #region ToGeoJSONFile(this OverpassQuery, Filename)
 
         /// <summary>
-        /// Convert the given Overpass query result to GeoJSON.
+        /// Run the given Overpass query, cenvert the result to GeoJSON and write it to the given file.
+        /// </summary>
+        /// <param name="OverpassQuery">An Overpass query.</param>
+        /// <param name="Filename">A file name.</param>
+        public static Task<JObject> ToGeoJSONFile(this OverpassQuery OverpassQuery, String Filename)
+        {
+
+            return OverpassQuery.
+                       RunQuery().
+                       ToGeoJSONFile(Filename);
+
+        }
+
+        #endregion
+
+        #region ToGeoJSONFile(this ResultTask, Filename)
+
+        /// <summary>
+        /// Convert the given Overpass query result to GeoJSON and write it to the given file.
         /// </summary>
         /// <param name="ResultTask">A Overpass query result task.</param>
         /// <param name="Filename">A file name.</param>
@@ -325,6 +290,69 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         }
 
         #endregion
+
+        #region ToGeoJSONFile(this ResultTask, FilenameBuilder)
+
+        /// <summary>
+        /// Convert the given Overpass query result to GeoJSON and write it to the given file.
+        /// </summary>
+        /// <param name="ResultTask">A Overpass query result task.</param>
+        /// <param name="FilenameBuilder">A file name.</param>
+        public static Task<JObject> ToGeoJSONFile(this Task<OverpassResult>  ResultTask,
+                                                  Func<JObject, String>      FilenameBuilder)
+        {
+            return ResultTask.ToGeoJSON().ContinueWith(t1 => t1.ToFile(FilenameBuilder(t1.Result)).Result);
+        }
+
+        #endregion
+
+        #region ToGeoJSONFile(this JSONTask)
+
+        /// <summary>
+        /// Write the given GeoJSON it to the given file.
+        /// </summary>
+        /// <param name="JSONTask">A GeoJSON task.</param>
+        /// <param name="Filename">A file name.</param>
+        public static Task<JObject> ToGeoJSONFile(this Task<JObject>  JSONTask,
+                                                  String              Filename)
+        {
+            return JSONTask.ToFile(Filename);
+        }
+
+        #endregion
+
+        #region ToGeoJSONFile(this JSONTask)
+
+        /// <summary>
+        /// Write the given GeoJSON it to the given file.
+        /// </summary>
+        /// <param name="JSONTask">A GeoJSON task.</param>
+        /// <param name="FilenameBuilder">A file name.</param>
+        public static Task<JObject> ToGeoJSONFile(this Task<JObject>     JSONTask,
+                                                  Func<JObject, String>  FilenameBuilder)
+        {
+            return JSONTask.ContinueWith(t1 => t1.ToFile(FilenameBuilder(t1.Result)).Result);
+        }
+
+        #endregion
+
+
+        #region ToGeoJSONFile(this JSONTask, FilenameBuilder)
+
+        /// <summary>
+        /// Write the given GeoJSON it to the given file.
+        /// </summary>
+        /// <param name="JSONTask">A GeoJSON task.</param>
+        /// <param name="FilenameBuilder">A file name.</param>
+        public static Task<IEnumerable<JObject>> ToGeoJSONFile(this Task<IEnumerable<JObject>>  JSONTask,
+                                                               Func<JObject, String>            FilenameBuilder)
+        {
+            return JSONTask.ContinueWith(t44 => t44.Result.Select(JSON => JSON.ToFile(FilenameBuilder)));
+            // ((IEnumerable<JObject>) t44.Result.Select(JSON => JSON.ToFile(FilenameBuilder)).ToArray()));
+        }
+
+        #endregion
+
 
 
         #region ToGeoJSON(this Node)
@@ -454,48 +482,133 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 
             // Relation.Ways.Select(Way => new JArray(Way.Nodes.Select(Node => new JArray(Node.Longitude, Node.Latitude))))
 
-            var AllElements = Relation.Ways.Select(Way => Way.Nodes.Select(Node => new GeoCoord(Node.Longitude, Node.Latitude)).ToArray()).ToArray();
+            var RemainingGeoFeatures  = Relation.Ways.Select(Way => new GeoFeature(Way.Nodes.Select(Node => new GeoCoord(Node.Longitude, Node.Latitude)))).ToList();
+            var ResultList            = new List<GeoFeature>();
 
-            var FirstElement = new List<GeoCoord>(AllElements.First());
-            var Rest         = AllElements.Skip(1).ToList();
-            Boolean Found;
+            Byte            Found = 0;
+            GeoFeature      CurrentGeoFeature;
+
+            if (Relation.Id == 3484638)
+            {
+            }
+
+            //if (Relation.Tags["type"].ToString() != "multipolygon")
+            //{
+            //    Console.WriteLine("Broken OSM multipolygon relation found!");
+            //}
 
             do
             {
 
-                Found = false;
-                var Element = FirstElement.Last();
+                CurrentGeoFeature = RemainingGeoFeatures.RemoveAndReturnFirst();
 
-                foreach (var r1 in Rest)
+                // The current geo feature is closed -> a polygon!
+                if (Relation.Tags["type"].ToString()         != "route" &&
+                    CurrentGeoFeature.GeoCoordinates.First() == CurrentGeoFeature.GeoCoordinates.Last())
                 {
-                    if (r1.First().Equals(Element))
-                    {
-                        Rest.Remove(r1);
-                        FirstElement.AddRange(r1);
-                        Found = true;
-                        break;
-                    }
-                    else if (r1.Last().Equals(Element))
-                    {
-                        Rest.Remove(r1);
-                        FirstElement.AddRange(r1.Reverse());
-                        Found = true;
-                        break;
-                    }
+                    CurrentGeoFeature.Type = GeoFeature.GeoType.Polygon;
+                    ResultList.Add(CurrentGeoFeature);
                 }
 
-                if (!Found)
+                // The current geo feature is not closed
+                // Try to extend the geo feature by finding fitting other geo features
+                else
                 {
-                    Console.WriteLine("Broken OSM relation to GeoJSON export?");
-                    break;
+
+                    do
+                    {
+
+                        Found = 0;
+
+                        foreach (var AdditionalPath in RemainingGeoFeatures)
+                        {
+
+                            if (AdditionalPath.GeoCoordinates.First() == CurrentGeoFeature.GeoCoordinates.Last())
+                            {
+                                RemainingGeoFeatures.Remove(AdditionalPath);
+                                // Skip first GeoCoordinate as it is redundant!
+                                CurrentGeoFeature.GeoCoordinates.AddRange(AdditionalPath.GeoCoordinates);//.Skip(1));
+                                Found = 1;
+                                break;
+                            }
+
+                            else if (AdditionalPath.GeoCoordinates.Last() == CurrentGeoFeature.GeoCoordinates.Last())
+                            {
+                                RemainingGeoFeatures.Remove(AdditionalPath);
+                                // Skip first GeoCoordinate as it is redundant!
+                                CurrentGeoFeature.GeoCoordinates.AddRange(AdditionalPath.GeoCoordinates.ReverseAndReturn());//.Skip(1));
+                                Found = 1;
+                                break;
+                            }
+
+                            else if (AdditionalPath.GeoCoordinates.First() == CurrentGeoFeature.GeoCoordinates.First())
+                            {
+                                RemainingGeoFeatures.Remove(AdditionalPath);
+                                CurrentGeoFeature.GeoCoordinates.Reverse();
+                                // Skip first GeoCoordinate as it is redundant!
+                                CurrentGeoFeature.GeoCoordinates.AddRange(AdditionalPath.GeoCoordinates);//.Skip(1));
+                                Found = 1;
+                                break;
+                            }
+
+                            else if (AdditionalPath.GeoCoordinates.Last() == CurrentGeoFeature.GeoCoordinates.First())
+                            {
+                                RemainingGeoFeatures.Remove(AdditionalPath);
+                                CurrentGeoFeature.GeoCoordinates.Reverse();
+                                // Skip first GeoCoordinate as it is redundant!
+                                CurrentGeoFeature.GeoCoordinates.AddRange(AdditionalPath.GeoCoordinates.ReverseAndReturn());//.Skip(1));
+                                Found = 1;
+                                break;
+                            }
+
+                        }
+
+                    } while (RemainingGeoFeatures.Count > 0 && Found > 0);
+
+                    CurrentGeoFeature.Type  = (Relation.Tags["type"].ToString()         != "route" &&
+                                               CurrentGeoFeature.GeoCoordinates.First() == CurrentGeoFeature.GeoCoordinates.Last())
+                                                  ? GeoFeature.GeoType.Polygon
+                                                  : GeoFeature.GeoType.LineString;
+
+                    ResultList.Add(CurrentGeoFeature);
+
                 }
 
-            } while (Rest.Count > 0);
+            } while (RemainingGeoFeatures.Count > 0);
 
 
-            var FirstNode = FirstElement.First();
-            var LastNode  = FirstElement.Last();
-            var isClosed  = FirstNode.Latitude == LastNode.Latitude && FirstNode.Longitude == LastNode.Longitude;
+            JProperty FeatureGeometry = null;
+
+            if (ResultList.Count == 1)
+            {
+
+                if (ResultList.First().Type == GeoFeature.GeoType.Polygon)
+                    FeatureGeometry = new JProperty("geometry", new JObject(
+                                          new JProperty("type",        "Polygon"),
+                                          new JProperty("coordinates", new JArray() { new JArray(CurrentGeoFeature.GeoCoordinates.Select(geo => new JArray(geo.Longitude, geo.Latitude))) })
+                                      ));
+                else
+                    FeatureGeometry = new JProperty("geometry", new JObject(
+                                          new JProperty("type",        "LineString"),
+                                          new JProperty("coordinates", new JArray(CurrentGeoFeature.GeoCoordinates.Select(geo => new JArray(geo.Longitude, geo.Latitude))))
+                                      ));
+
+            }
+            else
+            {
+
+                if (ResultList.First().Type == GeoFeature.GeoType.Polygon)
+                    FeatureGeometry = new JProperty("geometry", new JObject(
+                                          new JProperty("type",        "Polygon"),
+                                          new JProperty("coordinates", new JArray(ResultList.Select(items => new JArray(items.GeoCoordinates.Select(geo => new JArray(geo.Longitude, geo.Latitude))))))
+                                      ));
+                else
+                    FeatureGeometry = new JProperty("geometry", new JObject(
+                                          new JProperty("type",        "MultiLineString"),
+                                          new JProperty("coordinates", new JArray(ResultList.Select(items => new JArray(items.GeoCoordinates.Select(geo => new JArray(geo.Longitude, geo.Latitude))))))
+                                      ));
+
+            }
 
 
                 return new JObject(
@@ -508,24 +621,55 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
                             AddAndReturnList(Relation.Tags.Select(kvp => new JProperty(kvp.Key, kvp.Value))).
                             ToArray()
                         )),
-
-                        (!Found | !isClosed)?
-                    new JProperty("geometry", new JObject(
-                        new JProperty("type",        "MultiLineString"),
-                        new JProperty("coordinates", new JArray(Relation.Ways.Select(Way => new JArray(Way.Nodes.Select(Node => new JArray(Node.Longitude, Node.Latitude))))))
-                    ))
-
-                    :
-                    new JProperty("geometry", new JObject(
-                        new JProperty("type",        "Polygon"),
-                        new JProperty("coordinates", new JArray() { new JArray(FirstElement.Select(e2 => new JArray(e2.Longitude, e2.Latitude))) })
-                    ))
-
+                        FeatureGeometry
                 );
 
         }
 
         #endregion
+
+
+
+        public static JObject ForEachFeature(this JObject GeoJSON, Action<JObject> Delegate)
+        {
+
+             GeoJSON["features"].
+                 Children<JObject>().
+                 AsEnumerable().
+                 Select(Feature => new JObject(new JProperty("type",       "FeatureCollection"),
+                                               new JProperty("generator",  GeoJSON["generator"].ToString()),
+                                               new JProperty("copyright",  GeoJSON["copyright"].ToString()),
+                                               new JProperty("timestamp",  GeoJSON["timestamp"].ToString()),
+                                               new JProperty("features",   new JArray(Feature)))).
+                 ForEach(Delegate);
+
+             return GeoJSON;
+
+        }
+
+        public static Task<JObject> ForEachFeature(this Task<JObject> GeoJSONTask, Action<JObject> Delegate)
+        {
+            return GeoJSONTask.ContinueWith(t1 => t1.Result.ForEachFeature(Delegate));
+        }
+
+        public static IEnumerable<JObject> SplitFeatures(this JObject GeoJSON)
+        {
+
+             return GeoJSON["features"].
+                        Children<JObject>().
+                        AsEnumerable().
+                        Select(Feature => new JObject(new JProperty("type",       "FeatureCollection"),
+                                                      new JProperty("generator",  GeoJSON["generator"].ToString()),
+                                                      new JProperty("copyright",  GeoJSON["copyright"].ToString()),
+                                                      new JProperty("timestamp",  GeoJSON["timestamp"].ToString()),
+                                                      new JProperty("features",   new JArray(Feature))));
+
+        }
+
+        public static Task<IEnumerable<JObject>> SplitFeatures(this Task<JObject> GeoJSONTask)
+        {
+            return GeoJSONTask.ContinueWith(t1 => t1.Result.SplitFeatures());
+        }
 
     }
 

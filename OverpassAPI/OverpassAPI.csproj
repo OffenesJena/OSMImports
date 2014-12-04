@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeoJSON\GeoFeature.cs" />
+    <Compile Include="GeoJSON\GeoCoord.cs" />
     <Compile Include="Relation.cs" />
     <Compile Include="Way.cs" />
     <Compile Include="Node.cs" />

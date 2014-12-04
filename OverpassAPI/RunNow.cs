@@ -18,7 +18,9 @@
 #region Usings
 
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using Newtonsoft.Json.Linq;
 
@@ -55,6 +57,19 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         public static void RunNow(this Task<JObject> JSONTask)
         {
             JSONTask.ContinueWith(task => Console.WriteLine("ready!")).Wait();
+        }
+
+        #endregion
+
+        #region RunNow(this JSONTask)
+
+        /// <summary>
+        /// Run the given Overpass query.
+        /// </summary>
+        /// <param name="JSONTask">A Overpass query result task.</param>
+        public static void RunNow(this Task<IEnumerable<JObject>> JSONTask)
+        {
+            JSONTask.ContinueWith(task => { task.Result.ToArray(); Console.WriteLine("Multiple ready!"); }).Wait();
         }
 
         #endregion

@@ -73,6 +73,42 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         #endregion
 
 
+        #region ToFile(this JSON, Filename)
+
+        /// <summary>
+        /// Write the given JSON query result to the given file.
+        /// </summary>
+        /// <param name="JSON">A JSON query result.</param>
+        /// <param name="Filename">A file name.</param>
+        public static JObject ToFile(this JObject JSON, String Filename)
+        {
+
+            File.WriteAllText(Filename, JSON.ToString());
+
+            return JSON;
+
+        }
+
+        #endregion
+
+        #region ToFile(this JSON, FilenameBuilder)
+
+        /// <summary>
+        /// Write the given JSON query result to the given file.
+        /// </summary>
+        /// <param name="JSON">A JSON query result.</param>
+        /// <param name="FilenameBuilder">A delegate converting the given JSON object into a valid file name.</param>
+        public static JObject ToFile(this JObject JSON, Func<JObject, String> FilenameBuilder)
+        {
+
+            File.WriteAllText(FilenameBuilder(JSON), JSON.ToString());
+
+            return JSON;
+
+        }
+
+        #endregion
+
         #region ToFile(this JSONTask, Filename)
 
         /// <summary>
