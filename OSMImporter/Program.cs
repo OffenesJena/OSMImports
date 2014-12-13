@@ -21,11 +21,43 @@ using System;
 using System.IO;
 
 using org.GraphDefined.OpenDataAPI.OverpassAPI;
+using System.Threading.Tasks;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 
 #endregion
 
 namespace org.GraphDefined.OpenDataAPI.OSMImporter
 {
+
+    public static class Extentions
+    {
+
+        #region RunAll(this OverpassQuery, Filename)
+
+        /// <summary>
+        /// Standard workflow...
+        /// </summary>
+        /// <param name="OverpassQuery">An Overpass query.</param>
+        /// <param name="FilenamePrefix">A file name prefix.</param>
+        public static void RunAll(this OverpassQuery  OverpassQuery,
+                                  String              FilenamePrefix,
+                                  PgpSecretKey        SecretKey,
+                                  String              Passphrase)
+        {
+
+            OverpassQuery.
+                ToFile       (FilenamePrefix + ".json").
+                ToGeoJSONFile(FilenamePrefix + ".geojson").
+                SignGeoJSON  (FilenamePrefix + ".geojson.sig",  SecretKey, Passphrase).
+                SignGeoJSON  (FilenamePrefix + ".geojson.bsig", SecretKey, Passphrase, ArmoredOutput: false).
+                RunNow();
+
+        }
+
+        #endregion
+
+    }
+
 
     /// <summary>
     /// A little demo... can be tested via http://overpass-turbo.eu
@@ -40,7 +72,12 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
         public static void Main(String[] Arguments)
         {
 
+            var JenaId      = new OverpassQuery("Jena").AreaId;
+            var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-secring.gpg"));
+            var Passphrase  = File.ReadAllText("jod-passphrase.txt");
+
             Directory.CreateDirectory("Gemeinschaftsanlage");
+            Directory.CreateDirectory("Freizeit");
             Directory.CreateDirectory("Gebäude");
             Directory.CreateDirectory("Bundestagswahlkreise");
             Directory.CreateDirectory("Ortsteile");
@@ -55,43 +92,49 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             Directory.CreateDirectory("Flächennutzung/Wohngebiete");
             Directory.CreateDirectory("Flächennutzung/Militär");
 
-            var JenaId = new OverpassQuery("Jena").AreaId;
+
+            #region Gemeinschaftsanlage
+
+            //new OverpassQuery(JenaId).
+            //    WithAny      ("amenity").
+            //    ToFile       ("Gemeinschaftsanlage/amenity.json").
+            //  //  ToGeoJSONFile("Gemeinschaftsanlage/amenity.geojson").
+            //    RunNow();
+
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "school").
+                RunAll       ("Gemeinschaftsanlage/amenity.school",
+                              SecretKey, Passphrase);
+
+
+
+            #endregion
+
+            #region Freizeit
 
             //new OverpassQuery(JenaId).
             //    WithNodes("leisure", "hackerspace").
             //    ToFile("hackerspaces.json");
 
+            #endregion
 
-            new OverpassQuery(JenaId).
-                WithAny      ("amenity").
-                ToFile       ("Gemeinschaftsanlage/amenity.json").
-              //  ToGeoJSONFile("Gemeinschaftsanlage/amenity.geojson").
-                RunNow();
-
-
-            var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead ("jod-secring.gpg"));
-            var Passphrase  = File.ReadAllText("jod-passphrase.txt");
-
-            new OverpassQuery(JenaId).
-                WithAny      ("amenity", "school").
-                ToFile       ("Gemeinschaftsanlage/amenity.school.json").
-                ToGeoJSONFile("Gemeinschaftsanlage/amenity.school.geojson").
-                SignGeoJSON  ("Gemeinschaftsanlage/amenity.school.sig", SecretKey, Passphrase).
-                RunNow();
+            #region Gebäude
 
             new OverpassQuery(JenaId).
                 WithAny      ("building").
                 ToFile       ("Gebäude/building.json").
                 RunNow();
 
+            #endregion
+
             #region Bundestagswahlkreise
 
             new OverpassQuery().
                 WithRelations("boundary", "political").
                 And          ("name",     "Gera - Jena - Saale-Holzland-Kreis").
-                ToFile       ("Bundestagswahlkreise/Bundestagswahlkreise.json").
-                ToGeoJSONFile("Bundestagswahlkreise/Bundestagswahlkreise.geojson").
-                RunNow();
+                RunAll       ("Bundestagswahlkreise/Bundestagswahlkreise.json",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -100,9 +143,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             new OverpassQuery(JenaId).
                 WithRelations("boundary",    "administrative").
                 And          ("admin_level", "9").
-                ToFile       ("Ortsteile/Ortsteile.json").
-                ToGeoJSONFile("Ortsteile/Ortsteile.geojson").
-                RunNow();
+                RunAll       ("Ortsteile/Ortsteile.json",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithRelations("boundary",    "administrative").
@@ -122,16 +164,14 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             new OverpassQuery(JenaId).
                 WithRelations("route",   "bus").
                 WithNodes    ("highway", "bus_stop").
-                ToFile       ("ÖffentlicherNahverkehr/Buslinien.json").
-                ToGeoJSONFile("ÖffentlicherNahverkehr/Buslinien.geojson").
-                RunNow();
+                RunAll       ("ÖffentlicherNahverkehr/Buslinien",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithRelations("route",   "tram").
                 WithNodes    ("railway", "tram_stop").
-                ToFile       ("ÖffentlicherNahverkehr/Strassenbahnen.json").
-                ToGeoJSONFile("ÖffentlicherNahverkehr/Strassenbahnen.geojson").
-                RunNow();
+                RunAll       ("ÖffentlicherNahverkehr/Strassenbahnen",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -141,15 +181,13 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithNodes    ("highway").
-                ToFile       ("Strassen/highway-nodes.json").
-                ToGeoJSONFile("Strassen/highway-nodes.geojson").
-                RunNow();
+                RunAll       ("Strassen/highway-nodes",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
-                ToFile       ("Strassen/highway-ways.json").
-                ToGeoJSONFile("Strassen/highway-ways.geojson").
-                RunNow();
+                RunAll       ("Strassen/highway-ways",
+                              SecretKey, Passphrase);
 
             #endregion
 
