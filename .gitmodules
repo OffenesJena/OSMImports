@@ -7,3 +7,6 @@
 [submodule "libs/Hermod"]
 	path = libs/Hermod
 	url = git@github.com:Vanaheimr/Hermod.git
+[submodule "libs/bouncycastle"]
+	path = libs/bouncycastle
+	url = https://github.com/Vanaheimr/bc-csharp.git

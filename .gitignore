@@ -21,3 +21,8 @@ Release
 TestResults
 .psess
 .vsp
+
+# OpenGPG security
+OSMImporter/jod-pubring.gpg
+OSMImporter/jod-secring.gpg
+OSMImporter/jod-passphrase.txt

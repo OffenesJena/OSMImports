@@ -19,11 +19,8 @@
 
 using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 using org.GraphDefined.OpenDataAPI.OverpassAPI;
-using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -43,6 +40,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
         public static void Main(String[] Arguments)
         {
 
+            Directory.CreateDirectory("Gemeinschaftsanlage");
+            Directory.CreateDirectory("Gebäude");
             Directory.CreateDirectory("Bundestagswahlkreise");
             Directory.CreateDirectory("Ortsteile");
             Directory.CreateDirectory("ÖffentlicherNahverkehr");
@@ -62,6 +61,28 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             //    WithNodes("leisure", "hackerspace").
             //    ToFile("hackerspaces.json");
 
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity").
+                ToFile       ("Gemeinschaftsanlage/amenity.json").
+              //  ToGeoJSONFile("Gemeinschaftsanlage/amenity.geojson").
+                RunNow();
+
+
+            var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead ("jod-secring.gpg"));
+            var Passphrase  = File.ReadAllText("jod-passphrase.txt");
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "school").
+                ToFile       ("Gemeinschaftsanlage/amenity.school.json").
+                ToGeoJSONFile("Gemeinschaftsanlage/amenity.school.geojson").
+                SignGeoJSON  ("Gemeinschaftsanlage/amenity.school.sig", SecretKey, Passphrase).
+                RunNow();
+
+            new OverpassQuery(JenaId).
+                WithAny      ("building").
+                ToFile       ("Gebäude/building.json").
+                RunNow();
 
             #region Bundestagswahlkreise
 
