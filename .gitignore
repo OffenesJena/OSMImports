@@ -23,6 +23,9 @@ TestResults
 .vsp
 
 # OpenGPG security
-OSMImporter/jod-pubring.gpg
-OSMImporter/jod-secring.gpg
-OSMImporter/jod-passphrase.txt
+OSMImporter/jod-test-pubring.gpg
+OSMImporter/jod-test-secring.gpg
+OSMImporter/jod-test-passphrase.txt
+OSMImporter/jod-official-pubring.gpg
+OSMImporter/jod-official-secring.gpg
+OSMImporter/jod-official-passphrase.txt

@@ -337,18 +337,17 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
         #endregion
 
 
-        #region ToGeoJSONFile(this JSONTask, FilenameBuilder)
+        #region ToGeoJSONFile(this GeoJSONTask, FilenameBuilder)
 
         /// <summary>
         /// Write the given GeoJSON it to the given file.
         /// </summary>
-        /// <param name="JSONTask">A GeoJSON task.</param>
+        /// <param name="GeoJSONTask">A GeoJSON task.</param>
         /// <param name="FilenameBuilder">A file name.</param>
-        public static Task<IEnumerable<JObject>> ToGeoJSONFile(this Task<IEnumerable<JObject>>  JSONTask,
+        public static Task<IEnumerable<JObject>> ToGeoJSONFile(this Task<IEnumerable<JObject>>  GeoJSONTask,
                                                                Func<JObject, String>            FilenameBuilder)
         {
-            return JSONTask.ContinueWith(t44 => t44.Result.Select(JSON => JSON.ToFile(FilenameBuilder)));
-            // ((IEnumerable<JObject>) t44.Result.Select(JSON => JSON.ToFile(FilenameBuilder)).ToArray()));
+            return GeoJSONTask.ContinueWith(GeoJSONTasks => GeoJSONTasks.Result.Select(GeoJSON => GeoJSON.ToFile(FilenameBuilder)));
         }
 
         #endregion

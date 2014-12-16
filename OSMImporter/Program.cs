@@ -50,7 +50,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 ToGeoJSONFile(FilenamePrefix + ".geojson").
                 SignGeoJSON  (FilenamePrefix + ".geojson.sig",  SecretKey, Passphrase).
                 SignGeoJSON  (FilenamePrefix + ".geojson.bsig", SecretKey, Passphrase, ArmoredOutput: false).
-                RunNow();
+                ContinueWith(task => Console.WriteLine(FilenamePrefix + ".* files are ready!")).
+                Wait();
 
         }
 
@@ -73,8 +74,10 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
         {
 
             var JenaId      = new OverpassQuery("Jena").AreaId;
-            var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-secring.gpg"));
-            var Passphrase  = File.ReadAllText("jod-passphrase.txt");
+            //var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-test-secring.gpg"));
+            //var Passphrase  = File.ReadAllText("jod-test-passphrase.txt");
+            var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-official-secring.gpg"));
+            var Passphrase  = File.ReadAllText("jod-official-passphrase.txt");
 
             Directory.CreateDirectory("Gemeinschaftsanlage");
             Directory.CreateDirectory("Freizeit");
@@ -95,27 +98,486 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             #region Gemeinschaftsanlage
 
+            // cat amenity.json|grep amenity|sed -e 's/,//g'|sort|uniq
             //new OverpassQuery(JenaId).
             //    WithAny      ("amenity").
             //    ToFile       ("Gemeinschaftsanlage/amenity.json").
-            //  //  ToGeoJSONFile("Gemeinschaftsanlage/amenity.geojson").
             //    RunNow();
 
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "Cocktailbar").
+                RunAll       ("Gemeinschaftsanlage/amenity.cocktailbar",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "animal_shelter").
+                RunAll       ("Gemeinschaftsanlage/amenity.animal_shelter",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "arts_centre").
+                RunAll       ("Gemeinschaftsanlage/amenity.arts_centre",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "atm").
+                RunAll       ("Gemeinschaftsanlage/amenity.atm",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "bank").
+                RunAll       ("Gemeinschaftsanlage/amenity.bank",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "bar").
+                RunAll       ("Gemeinschaftsanlage/amenity.bar",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "bbq").
+                RunAll       ("Gemeinschaftsanlage/amenity.bbq",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "bench").
+                RunAll       ("Gemeinschaftsanlage/amenity.bench",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "bicycle_parking").
+                RunAll       ("Gemeinschaftsanlage/amenity.bicycle_parking",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "biergarten").
+                RunAll       ("Gemeinschaftsanlage/amenity.biergarten",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "brothel").
+                RunAll       ("Gemeinschaftsanlage/amenity.brothel",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "cafe").
+                RunAll       ("Gemeinschaftsanlage/amenity.cafe",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "canteen").
+                RunAll       ("Gemeinschaftsanlage/amenity.canteen",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "car_rental").
+                RunAll       ("Gemeinschaftsanlage/amenity.car_rental",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "car_sharing").
+                RunAll       ("Gemeinschaftsanlage/amenity.car_sharing",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "car_wash").
+                RunAll       ("Gemeinschaftsanlage/amenity.car_wash",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "cinema").
+                RunAll       ("Gemeinschaftsanlage/amenity.cinema",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "clinic").
+                RunAll       ("Gemeinschaftsanlage/amenity.clinic",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "clock").
+                RunAll       ("Gemeinschaftsanlage/amenity.clock",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "college").
+                RunAll       ("Gemeinschaftsanlage/amenity.college",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "community_centre").
+                RunAll       ("Gemeinschaftsanlage/amenity.community_centre",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "courthouse").
+                RunAll       ("Gemeinschaftsanlage/amenity.courthouse",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "coworking_space").
+                RunAll       ("Gemeinschaftsanlage/amenity.coworking_space",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "crematorium").
+                RunAll       ("Gemeinschaftsanlage/amenity.crematorium",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "dentist").
+                RunAll       ("Gemeinschaftsanlage/amenity.dentist",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "doctors").
+                RunAll       ("Gemeinschaftsanlage/amenity.doctors",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "drinking_water").
+                RunAll       ("Gemeinschaftsanlage/amenity.drinking_water",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "driving_school").
+                RunAll       ("Gemeinschaftsanlage/amenity.driving_school",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "fast_food").
+                RunAll       ("Gemeinschaftsanlage/amenity.fast_food",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "fire_station").
+                RunAll       ("Gemeinschaftsanlage/amenity.fire_station",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "fountain").
+                RunAll       ("Gemeinschaftsanlage/amenity.fountain",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "fuel").
+                RunAll       ("Gemeinschaftsanlage/amenity.fuel",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "grave_yard").
+                RunAll       ("Gemeinschaftsanlage/amenity.grave_yard",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "grit_bin").
+                RunAll       ("Gemeinschaftsanlage/amenity.grit_bin",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "health_centre").
+                RunAll       ("Gemeinschaftsanlage/amenity.health_centre",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "hospital").
+                RunAll       ("Gemeinschaftsanlage/amenity.hospital",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "hunting_stand").
+                RunAll       ("Gemeinschaftsanlage/amenity.hunting_stand",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "kindergarten").
+                RunAll       ("Gemeinschaftsanlage/amenity.kindergarten",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "library").
+                RunAll       ("Gemeinschaftsanlage/amenity.library",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "marketplace").
+                RunAll       ("Gemeinschaftsanlage/amenity.marketplace",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "motorcycle_parking").
+                RunAll       ("Gemeinschaftsanlage/amenity.motorcycle_parking",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "nightclub").
+                RunAll       ("Gemeinschaftsanlage/amenity.nightclub",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "nursing_home").
+                RunAll       ("Gemeinschaftsanlage/amenity.nursing_home",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "observatory").
+                RunAll       ("Gemeinschaftsanlage/amenity.observatory",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "orphanage").
+                RunAll       ("Gemeinschaftsanlage/amenity.orphanage",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "parking").
+                RunAll       ("Gemeinschaftsanlage/amenity.parking",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "parking_entrance").
+                RunAll       ("Gemeinschaftsanlage/amenity.parking_entrance",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "pharmacy").
+                RunAll       ("Gemeinschaftsanlage/amenity.pharmacy",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "place_of_worship").
+                RunAll       ("Gemeinschaftsanlage/amenity.place_of_worship",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "planetarium").
+                RunAll       ("Gemeinschaftsanlage/amenity.planetarium",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "police").
+                RunAll       ("Gemeinschaftsanlage/amenity.police",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "post_box").
+                RunAll       ("Gemeinschaftsanlage/amenity.post_box",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "post_office").
+                RunAll       ("Gemeinschaftsanlage/amenity.post_office",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "pub").
+                RunAll       ("Gemeinschaftsanlage/amenity.pub",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "public_building").
+                RunAll       ("Gemeinschaftsanlage/amenity.public_building",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "recycling").
+                RunAll       ("Gemeinschaftsanlage/amenity.recycling",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "register_office").
+                RunAll       ("Gemeinschaftsanlage/amenity.register_office",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "restaurant").
+                RunAll       ("Gemeinschaftsanlage/amenity.restaurant",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "sauna").
+                RunAll       ("Gemeinschaftsanlage/amenity.sauna",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("amenity", "school").
                 RunAll       ("Gemeinschaftsanlage/amenity.school",
                               SecretKey, Passphrase);
 
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "shelter").
+                RunAll       ("Gemeinschaftsanlage/amenity.shelter",
+                              SecretKey, Passphrase);
 
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "social_facility").
+                RunAll       ("Gemeinschaftsanlage/amenity.social_facility",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "spa").
+                RunAll       ("Gemeinschaftsanlage/amenity.spa",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "stripclub").
+                RunAll       ("Gemeinschaftsanlage/amenity.stripclub",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "swimming_pool").
+                RunAll       ("Gemeinschaftsanlage/amenity.swimming_pool",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "taxi").
+                RunAll       ("Gemeinschaftsanlage/amenity.taxi",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "telephone").
+                RunAll       ("Gemeinschaftsanlage/amenity.telephone",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "theatre").
+                RunAll       ("Gemeinschaftsanlage/amenity.theatre",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "toilets").
+                RunAll       ("Gemeinschaftsanlage/amenity.toilets",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "townhall").
+                RunAll       ("Gemeinschaftsanlage/amenity.townhall",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "university").
+                RunAll       ("Gemeinschaftsanlage/amenity.university",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "vending_machine").
+                RunAll       ("Gemeinschaftsanlage/amenity.vending_machine",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "veterinary").
+                RunAll       ("Gemeinschaftsanlage/amenity.veterinary",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("amenity", "waste_basket").
+                RunAll       ("Gemeinschaftsanlage/amenity.waste_basket",
+                              SecretKey, Passphrase);
 
             #endregion
 
             #region Freizeit
 
+            //// cat leisure.json|grep leisure|sed -e 's/,//g'|sort|uniq
             //new OverpassQuery(JenaId).
-            //    WithNodes("leisure", "hackerspace").
-            //    ToFile("hackerspaces.json");
+            //    WithAny      ("leisure").
+            //    ToFile       ("Freizeit/leisure.json").
+            //    RunNow();
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "common").
+                RunAll       ("Freizeit/leisure.common",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "dance").
+                RunAll       ("Freizeit/leisure.dance",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "fitness_centre").
+                RunAll       ("Freizeit/leisure.fitness_centre",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "gambling").
+                RunAll       ("Freizeit/leisure.gambling",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "garden").
+                RunAll       ("Freizeit/leisure.garden",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "golf_course").
+                RunAll       ("Freizeit/leisure.golf_course",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "hackerspace").
+                RunAll       ("Freizeit/leisure.hackerspace",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "horse_riding").
+                RunAll       ("Freizeit/leisure.horse_riding",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "nature_reserve").
+                RunAll       ("Freizeit/leisure.nature_reserve",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "park").
+                RunAll       ("Freizeit/leisure.park",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "pitch").
+                RunAll       ("Freizeit/leisure.pitch",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "playground").
+                RunAll       ("Freizeit/leisure.playground",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "slipway").
+                RunAll       ("Freizeit/leisure.slipway",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "sports_centre").
+                RunAll       ("Freizeit/leisure.sports_centre",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "stadium").
+                RunAll       ("Freizeit/leisure.stadium",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "swimming_pool").
+                RunAll       ("Freizeit/leisure.swimming_pool",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "tanning_salon").
+                RunAll       ("Freizeit/leisure.tanning_salon",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "track").
+                RunAll       ("Freizeit/leisure.track",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(JenaId).
+                WithAny      ("leisure", "water_park").
+                RunAll       ("Freizeit/leisure.water_park",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -123,8 +585,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithAny      ("building").
-                ToFile       ("Gebäude/building.json").
-                RunNow();
+                RunAll       ("Gebäude/building",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -146,6 +608,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 RunAll       ("Ortsteile/Ortsteile.json",
                               SecretKey, Passphrase);
 
+            // ToDo: Missing OpenGPG signing for splitted GeoJSON has to be implemented!
             new OverpassQuery(JenaId).
                 WithRelations("boundary",    "administrative").
                 And          ("admin_level", "9").
@@ -164,6 +627,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             new OverpassQuery(JenaId).
                 WithRelations("route",   "bus").
                 WithNodes    ("highway", "bus_stop").
+                WithNodes    ("amenity", "bus_station").
                 RunAll       ("ÖffentlicherNahverkehr/Buslinien",
                               SecretKey, Passphrase);
 
@@ -195,121 +659,112 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithNodes    ("highway", "speed_camera").
-                ToFile       ("Tempolimits/Blitzer.json").
-                ToGeoJSONFile("Tempolimits/Blitzer.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Blitzer",
+                              SecretKey, Passphrase);
+
+            // ToDo: In this case it's not that simple! Split and merge GeoJSON has to be implemented!
+            //new OverpassQuery(JenaId).
+            //    WithWays     ("highway").
+            //    And          ("maxspeed").
+            //    ToGeoJSON    ().
+            //    SplitFeatures().
+            //    ToGeoJSONFile(JSON => "Tempolimits/" + JSON["features"][0]["properties"]["maxspeed"].ToString() + ".geojson").
+            //    RunNow();
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "5").
-                ToFile       ("Tempolimits/Tempo5.json").
-                ToGeoJSONFile("Tempolimits/Tempo5.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo5",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "6").
-                ToFile       ("Tempolimits/Tempo6.json").
-                ToGeoJSONFile("Tempolimits/Tempo6.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo6",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "10").
-                ToFile       ("Tempolimits/Tempo10.json").
-                ToGeoJSONFile("Tempolimits/Tempo10.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo10",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "20").
-                ToFile       ("Tempolimits/Tempo20.json").
-                ToGeoJSONFile("Tempolimits/Tempo20.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo20",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "30").
-                ToFile       ("Tempolimits/Tempo30.json").
-                ToGeoJSONFile("Tempolimits/Tempo30.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo30",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "40").
-                ToFile       ("Tempolimits/Tempo40.json").
-                ToGeoJSONFile("Tempolimits/Tempo40.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo40",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "50").
-                ToFile       ("Tempolimits/Tempo50.json").
-                ToGeoJSONFile("Tempolimits/Tempo50.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo50",
+                              SecretKey, Passphrase);
 
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "60").
-                ToFile       ("Tempolimits/Tempo60.json").
-                ToGeoJSONFile("Tempolimits/Tempo60.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo60",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "70").
-                ToFile       ("Tempolimits/Tempo70.json").
-                ToGeoJSONFile("Tempolimits/Tempo70.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo70",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "80").
-                ToFile       ("Tempolimits/Tempo80.json").
-                ToGeoJSONFile("Tempolimits/Tempo80.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo80",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "90").
-                ToFile       ("Tempolimits/Tempo90.json").
-                ToGeoJSONFile("Tempolimits/Tempo90.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo90",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "100").
-                ToFile       ("Tempolimits/Tempo100.json").
-                ToGeoJSONFile("Tempolimits/Tempo100.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo100",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "110").
-                ToFile       ("Tempolimits/Tempo110.json").
-                ToGeoJSONFile("Tempolimits/Tempo110.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo110",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "120").
-                ToFile       ("Tempolimits/Tempo120.json").
-                ToGeoJSONFile("Tempolimits/Tempo120.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo120",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithWays     ("highway").
                 And          ("maxspeed", "130").
-                ToFile       ("Tempolimits/Tempo130.json").
-                ToGeoJSONFile("Tempolimits/Tempo130.geojson").
-                RunNow();
+                RunAll       ("Tempolimits/Tempo130",
+                              SecretKey, Passphrase);
 
             #endregion
 
             #region Energie
-
-            // highway (nodes/relations)
 
             new OverpassQuery(JenaId).
                 WithNodes    ("power", "generator").
@@ -333,9 +788,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 WithNodes    ("power", "transformer").
                 WithWays     ("power", "transformer").
 
-                ToFile       ("Energie/Strom.json").
-                ToGeoJSONFile("Energie/Strom.geojson").
-                RunNow();
+                RunAll       ("Energie/Strom",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithNodes    ("power", "pole").
@@ -344,9 +798,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 WithWays     ("power", "minor_line").
                 WithWays     ("power", "line").
                 WithWays     ("power", "lines").
-                ToFile       ("Energie/Stromleitungen.json").
-                ToGeoJSONFile("Energie/Stromleitungen.geojson").
-                RunNow();
+                RunAll       ("Energie/Stromleitungen",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -360,274 +813,230 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "farm").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.farm.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farm.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.farm",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "farmyard").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.farmyard.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farmyard.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.farmyard",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "farmland").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.farmland.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farmland.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.farmland",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "farmland").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.farmland.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.farmland.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.farmland",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "forest").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.forest.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.forest.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.forest",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "garden").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.garden.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.garden.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.garden",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "grass").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.grass.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.grass.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.grass",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "green").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.green.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.green.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.green",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "greenfield").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.greenfield.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.greenfield.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.greenfield",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "meadow").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.meadow.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.meadow.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.meadow",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "scrub").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.scrub.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.scrub.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.scrub",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "village_green").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.village_green.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.village_green.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.village_green",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "cemetery").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.cemetery.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.cemetery.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.cemetery",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "allotments").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.allotments.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.allotments.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.allotments",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "orchard").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.orchard.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.orchard.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.orchard",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "vineyard").
-                ToFile       ("Flächennutzung/Grünfläche/landuse.vineyard.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/landuse.vineyard.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/landuse.vineyard",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "grass").
-                ToFile       ("Flächennutzung/Grünfläche/natural.grass.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.grass.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.grass",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "grassland").
-                ToFile       ("Flächennutzung/Grünfläche/natural.grassland.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.grassland.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.grassland",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "heath").
-                ToFile       ("Flächennutzung/Grünfläche/natural.heath.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.heath.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.heath",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "marsh").
-                ToFile       ("Flächennutzung/Grünfläche/natural.marsh.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.marsh.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.marsh",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "meadow").
-                ToFile       ("Flächennutzung/Grünfläche/natural.meadow.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.meadow.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.meadow",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "tree").
-                ToFile       ("Flächennutzung/Grünfläche/natural.tree.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.tree.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.tree",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "tree_row").
-                ToFile       ("Flächennutzung/Grünfläche/natural.tree_row.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.tree_row.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.tree_row",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "scrub").
-                ToFile       ("Flächennutzung/Grünfläche/natural.scrub.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.scrub.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.scrub",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "wood").
-                ToFile       ("Flächennutzung/Grünfläche/natural.wood.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.wood.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.wood",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "beach").
-                ToFile       ("Flächennutzung/Grünfläche/natural.beach.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.beach.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.beach",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "cave_entrance").
-                ToFile       ("Flächennutzung/Grünfläche/natural.cave_entrance.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.cave_entrance.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.cave_entrance",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "cliff").
-                ToFile       ("Flächennutzung/Grünfläche/natural.cliff.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.cliff.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.cliff",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "peak").
-                ToFile       ("Flächennutzung/Grünfläche/natural.peak.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.peak.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.peak",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "sand").
-                ToFile       ("Flächennutzung/Grünfläche/natural.sand.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.sand.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.sand",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "scree").
-                ToFile       ("Flächennutzung/Grünfläche/natural.scree.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.scree.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.scree",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "sinkhole").
-                ToFile       ("Flächennutzung/Grünfläche/natural.sinkhole.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.sinkhole.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.sinkhole",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "spring").
-                ToFile       ("Flächennutzung/Grünfläche/natural.spring.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.spring.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.spring",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "water").
-                ToFile       ("Flächennutzung/Grünfläche/natural.water.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.water.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.water",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "wetland").
-                ToFile       ("Flächennutzung/Grünfläche/natural.wetland.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/natural.wetland.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/natural.wetland",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("wood", "wood").
-                ToFile       ("Flächennutzung/Grünfläche/wood.wood.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/wood.wood.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/wood.wood",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
             // leisure  = , , , , , , , , , water_park, 
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "garden").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.garden.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.garden.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.garden",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "golf_course").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.golf_course.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.golf_course.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.golf_course",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "nature_reserve").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.nature_reserve.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.nature_reserve.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.nature_reserve",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "park").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.park.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.park.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.park",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "pitch").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.pitch.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.pitch.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.pitch",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "village_green").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.village_green.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.village_green.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.village_green",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "recreation_ground").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.recreation_ground.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.recreation_ground.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.recreation_ground",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "wildlife_hide").
-                ToFile       ("Flächennutzung/Grünfläche/leisure.wildlife_hide.json").
-                ToGeoJSONFile("Flächennutzung/Grünfläche/leisure.wildlife_hide.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Grünfläche/leisure.wildlife_hide",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -643,123 +1052,104 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "river").
-                ToFile       ("Flächennutzung/Wasser/waterway.river.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.river.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.river",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "riverbank").
-                ToFile       ("Flächennutzung/Wasser/waterway.riverbank.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.riverbank.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.riverbank",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "stream").
-                ToFile       ("Flächennutzung/Wasser/waterway.stream.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.stream.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.stream",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "wadi").
-                ToFile       ("Flächennutzung/Wasser/waterway.wadi.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.wadi.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.wadi",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "canal").
-                ToFile       ("Flächennutzung/Wasser/waterway.canal.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.canal.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.canal",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "drain").
-                ToFile       ("Flächennutzung/Wasser/waterway.drain.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.drain.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.drain",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "ditch").
-                ToFile       ("Flächennutzung/Wasser/waterway.ditch.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.ditch.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.ditch",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "dam").
-                ToFile       ("Flächennutzung/Wasser/waterway.dam.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.dam.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.dam",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "weir").
-                ToFile       ("Flächennutzung/Wasser/waterway.weir.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.weir.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.weir",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "lock_gate").
-                ToFile       ("Flächennutzung/Wasser/waterway.lock_gate.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.lock_gate.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.lock_gate",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "fish_pass").
-                ToFile       ("Flächennutzung/Wasser/waterway.fish_pass.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.fish_pass.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.fish_pass",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "mooring").
-                ToFile       ("Flächennutzung/Wasser/waterway.mooring.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.mooring.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.mooring",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "waterfall").
-                ToFile       ("Flächennutzung/Wasser/waterway.waterfall.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/waterway.waterfall.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/waterway.waterfall",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("natural", "water").
-                ToFile       ("Flächennutzung/Wasser/natural.water.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/natural.water.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/natural.water",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "water").
-                ToFile       ("Flächennutzung/Wasser/landuse.water.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/landuse.water.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/landuse.water",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "basin").
-                ToFile       ("Flächennutzung/Wasser/landuse.basin.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/landuse.basin.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/landuse.basin",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "reservoir").
-                ToFile       ("Flächennutzung/Wasser/landuse.reservoir.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/landuse.reservoir.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/landuse.reservoir",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "swimming_pool").
-                ToFile       ("Flächennutzung/Wasser/leisure.swimming_pool.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/leisure.swimming_pool.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/leisure.swimming_pool",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "water_park").
-                ToFile       ("Flächennutzung/Wasser/leisure.water_park.json").
-                ToGeoJSONFile("Flächennutzung/Wasser/leisure.water_park.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wasser/leisure.water_park",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -771,127 +1161,107 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "industrial").
-                ToFile       ("Flächennutzung/Gewerbe/landuse.industrial.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/landuse.industrial.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/landuse.industrial",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "commercial").
-                ToFile       ("Flächennutzung/Gewerbe/landuse.commercial.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/landuse.commercial.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/landuse.commercial",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "retail").
-                ToFile       ("Flächennutzung/Gewerbe/landuse.retail.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/landuse.retail.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/landuse.retail",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "brownfield").
-                ToFile       ("Flächennutzung/Gewerbe/landuse.brownfield.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/landuse.brownfield.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/landuse.brownfield",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "quarry").
-                ToFile       ("Flächennutzung/Gewerbe/landuse.quarry.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/landuse.quarry.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/landuse.quarry",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "railway").
-                ToFile       ("Flächennutzung/Gewerbe/landuse.railway.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/landuse.railway.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/landuse.railway",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "dance").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.dance.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.dance.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.dance",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "fitness_centre").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.fitness_centre.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.fitness_centre.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.fitness_centre",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "dance").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.dance.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.dance.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.dance",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "gambling").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.gambling.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.gambling.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.gambling",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "horse_riding").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.horse_riding.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.horse_riding.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.horse_riding",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "pitch").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.pitch.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.pitch.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.pitch",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "sports_centre").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.sports_centre.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.sports_centre.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.sports_centre",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "stadium").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.stadium.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.stadium.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.stadium",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "miniature_golf").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.miniature_golf.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.miniature_golf.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.miniature_golf",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "slipway").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.slipway.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.slipway.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.slipway",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "tanning_salon").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.tanning_salon.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.tanning_salon.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.tanning_salon",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("leisure", "track").
-                ToFile       ("Flächennutzung/Gewerbe/leisure.track.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/leisure.track.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/leisure.track",
+                              SecretKey, Passphrase);
 
             // ----------------------------------------------------------------------------
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "dock").
-                ToFile       ("Flächennutzung/Gewerbe/waterway.dock.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/waterway.dock.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/waterway.dock",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("waterway", "boatyard").
-                ToFile       ("Flächennutzung/Gewerbe/waterway.boatyard.json").
-                ToGeoJSONFile("Flächennutzung/Gewerbe/waterway.boatyard.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Gewerbe/waterway.boatyard",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -902,21 +1272,18 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "residential").
-                ToFile       ("Flächennutzung/Wohngebiete/landuse.residential.json").
-                ToGeoJSONFile("Flächennutzung/Wohngebiete/landuse.residential.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wohngebiete/landuse.residential",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "garages").
-                ToFile       ("Flächennutzung/Wohngebiete/landuse.garages.json").
-                ToGeoJSONFile("Flächennutzung/Wohngebiete/landuse.garages.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wohngebiete/landuse.garages",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("residential", "*").
-                ToFile       ("Flächennutzung/Wohngebiete/residential.json").
-                ToGeoJSONFile("Flächennutzung/Wohngebiete/residential.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Wohngebiete/residential",
+                              SecretKey, Passphrase);
 
             #endregion
 
@@ -927,15 +1294,13 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             new OverpassQuery(JenaId).
                 WithAny      ("landuse", "military").
-                ToFile       ("Flächennutzung/Militär/landuse.military.json").
-                ToGeoJSONFile("Flächennutzung/Militär/landuse.military.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Militär/landuse.military",
+                              SecretKey, Passphrase);
 
             new OverpassQuery(JenaId).
                 WithAny      ("military").
-                ToFile       ("Flächennutzung/Militär/military.json").
-                ToGeoJSONFile("Flächennutzung/Militär/military.geojson").
-                RunNow();
+                RunAll       ("Flächennutzung/Militär/military",
+                              SecretKey, Passphrase);
 
             #endregion
 
