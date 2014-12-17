@@ -803,7 +803,6 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             #endregion
 
-
             #region Flächennutzung / Grünfläche
 
             // landuse  = farm, farmyard, farmland, forest, garden, grass, green, greenfield, meadow, scrub, village_green, cemetery, allotments, orchard, vineyard
