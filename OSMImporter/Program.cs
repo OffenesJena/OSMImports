@@ -19,10 +19,13 @@
 
 using System;
 using System.IO;
-
-using org.GraphDefined.OpenDataAPI.OverpassAPI;
 using System.Threading.Tasks;
+
+using org.GraphDefined.Vanaheimr.Illias;
+using org.GraphDefined.OpenDataAPI.OverpassAPI;
+
 using Org.BouncyCastle.Bcpg.OpenPgp;
+using Org.BouncyCastle.Bcpg;
 
 #endregion
 
@@ -74,6 +77,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
         {
 
             var JenaId      = new OverpassQuery("Jena").AreaId;
+            var ThüringenId = new OverpassQuery("Thüringen").AreaId;
             //var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-test-secring.gpg"));
             //var Passphrase  = File.ReadAllText("jod-test-passphrase.txt");
             var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-official-secring.gpg"));
@@ -83,7 +87,8 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             Directory.CreateDirectory("Freizeit");
             Directory.CreateDirectory("Gebäude");
             Directory.CreateDirectory("Bundestagswahlkreise");
-            Directory.CreateDirectory("Ortsteile");
+            Directory.CreateDirectory("Gebietsgrenzen");
+            Directory.CreateDirectory("Gebietsgrenzen/Ortsteile_Jena");
             Directory.CreateDirectory("ÖffentlicherNahverkehr");
             Directory.CreateDirectory("Strassen");
             Directory.CreateDirectory("Tempolimits");
@@ -600,12 +605,51 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             #endregion
 
-            #region Ortsteile
+            #region Gebietsgrenzen
+
+            // Thüringen
+            // http://wiki.openstreetmap.org/wiki/DE:Gemeindegrenze
+            // http://wiki.openstreetmap.org/wiki/DE:Grenze#Kommunale_Ebene_-_Ortsgrenzen_admin_level.3D7-9
+            // http://kahla.de/cms/index.php?page=Gewerbesteuer-Allgemeine-Informationen
+            // http://www.statistik.thueringen.de/datenbank/TabAnzeige.asp?tabelle=GE001613%7C%7CHebes%E4tze+der+Gemeinden&startpage=99&csv=&richtung=&sortiere=&vorspalte=0&tit2=&TIS=&SZDT=&anzahlH=-1&fontgr=12&mkro=&AnzeigeAuswahl=&XLS=&auswahlNr=&felder=0&felder=1&felder=2&zeit=2013%7C%7C99
+
+            new OverpassQuery(ThüringenId).
+                WithRelations("boundary",    "administrative").
+                And          ("admin_level", "4").
+                RunAll       ("Gebietsgrenzen/Thüringen_Gesamt",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(ThüringenId).
+                WithRelations("boundary",    "administrative").
+                And          ("admin_level", "6").
+                RunAll       ("Gebietsgrenzen/Thüringen_Kreisgrenzen",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(ThüringenId).
+                WithRelations("boundary",    "administrative").
+                And          ("admin_level", "7").
+                RunAll       ("Gebietsgrenzen/Thüringen_Verwaltungsgemeinschaften.json",
+                              SecretKey, Passphrase);
+
+            new OverpassQuery(ThüringenId).
+                // Bei admin_level = 8 fehlen die großen Städte!
+                WithRelations("boundary",    "administrative").And("admin_level", "8").
+                WithRelations("boundary",    "administrative").And("name",        "Eisenach").
+                WithRelations("boundary",    "administrative").And("name",        "Erfurt").
+                WithRelations("boundary",    "administrative").And("name",        "Weimar").
+                WithRelations("boundary",    "administrative").And("name",        "Jena").
+                WithRelations("boundary",    "administrative").And("name",        "Gera").
+                WithRelations("boundary",    "administrative").And("name",        "Suhl").
+                RunAll       ("Gebietsgrenzen/Thüringen_Gemeinden.json",
+                              SecretKey, Passphrase);
+
+
+            // Jena
 
             new OverpassQuery(JenaId).
                 WithRelations("boundary",    "administrative").
                 And          ("admin_level", "9").
-                RunAll       ("Ortsteile/Ortsteile.json",
+                RunAll       ("Gebietsgrenzen/Ortsteile_Jena/Jena_Ortsteile",
                               SecretKey, Passphrase);
 
             // ToDo: Missing OpenGPG signing for splitted GeoJSON has to be implemented!
@@ -614,7 +658,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 And          ("admin_level", "9").
                 ToGeoJSON    ().
                 SplitFeatures().
-                ToGeoJSONFile(JSON => "Ortsteile/" + JSON["features"][0]["properties"]["name"].ToString().Replace("/", "_").Replace(" ", "") + ".geojson").
+                ToGeoJSONFile(JSON => "Gebietsgrenzen/Ortsteile_Jena/" + JSON["features"][0]["properties"]["name"].ToString().Replace("/", "_").Replace(" ", "") + ".geojson").
                 RunNow();
 
             #endregion
@@ -1303,6 +1347,29 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             #endregion
 
+            // -----------------------------------------------------------------
+
+            #region Hebesätze der Gemeinden
+
+            Directory.EnumerateFiles("Hebesätze der Gemeinden").ForEach(InFile => {
+
+                OpenGPG.CreateSignature(File.OpenRead (InFile),
+                                        File.OpenWrite(InFile.Replace(".csv", ".sig")),
+                                        SecretKey,
+                                        Passphrase,
+                                        HashAlgorithms.Sha512,
+                                        ArmoredOutput: true);
+
+                OpenGPG.CreateSignature(File.OpenRead (InFile),
+                                        File.OpenWrite(InFile.Replace(".csv", ".bsig")),
+                                        SecretKey,
+                                        Passphrase,
+                                        HashAlgorithms.Sha512,
+                                        ArmoredOutput: false);
+
+            });
+
+            #endregion
 
             Console.WriteLine("ready...");
             Console.ReadLine();

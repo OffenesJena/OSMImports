@@ -1,0 +1,498 @@
+51000;Erfurt, Stadt;200;350;400
+52000;Gera, Stadt;200;320;380
+53000;Jena, Stadt;200;300;380
+54000;Suhl, Stadt;200;300;350
+55000;Weimar, Stadt;220;314;364
+61000;Landkreis Eichsfeld;224;308;318
+61001;Arenshausen;200;300;300
+61002;Asbach-Sickenberg;200;300;300
+61003;Berlingerode;200;300;300
+61004;Bernterode (bei Heilbad Heiligenstadt);300;300;300
+61005;Bernterode (bei Worbis);200;300;300
+61006;Beuren;200;300;280
+61007;Birkenfelde;200;300;300
+61009;Bischofferode;220;320;300
+61011;Bockelnhagen;240;330;300
+61012;Bodenrode-Westhausen;200;300;300
+61013;Böseckendorf;200;300;300
+61014;Bornhagen;200;300;300
+61015;Brehme;200;300;300
+61016;Breitenbach;200;300;300
+61017;Breitenworbis;200;300;300
+61018;Büttstedt;200;300;300
+61019;Buhla;200;300;300
+61021;Burgwalde;200;300;300
+61022;Deuna;200;300;300
+61023;Dieterode;300;300;250
+61024;Dietzenrode/Vatterode;200;300;300
+61025;Dingelstädt, Stadt;300;300;340
+61026;Ecklingerode;200;300;300
+61027;Effelder;200;300;300
+61028;Eichstruth;200;300;300
+61029;Ershausen;300;300;300
+61031;Ferna;200;300;300
+61032;Freienhagen;200;300;300
+61033;Fretterode;200;300;300
+61034;Geisleden;200;300;300
+61035;Geismar;300;300;300
+61036;Gerbershausen;200;300;300
+61037;Gernrode;200;300;300
+61038;Gerterode;200;300;300
+61039;Glasehausen;200;300;300
+61041;Großbartloff;200;300;300
+61042;Großbodungen;200;300;300
+61043;Hausen;200;300;300
+61044;Haynrode;200;300;300
+61045;Heilbad Heiligenstadt, Stadt;250;320;340
+61046;Helmsdorf;300;300;300
+61047;Heuthen;200;300;300
+61048;Hohengandern;200;300;300
+61049;Hohes Kreuz;200;300;325
+61051;Holungen;200;300;300
+61052;Hundeshagen;200;300;300
+61053;Jützenbach;220;320;300
+61054;Kallmerode;200;300;300
+61055;Kefferhausen;300;300;300
+61056;Kella;300;300;300
+61057;Kirchgandern;200;300;300
+61058;Kirchworbis;200;300;300
+61059;Kleinbartloff;200;300;300
+61061;Kreuzebra;300;300;300
+61062;Krombach;300;300;300
+61063;Küllstedt;200;300;260
+61064;Leinefelde, Stadt;254;318;328
+61065;Lenterode;200;300;300
+61066;Lindewerra;200;300;300
+61067;Lutter;300;300;300
+61068;Mackenrode;200;300;300
+61069;Marth;200;300;300
+61071;Martinfeld;300;300;300
+61072;Neuendorf;200;300;300
+61073;Neustadt;200;300;300
+61074;Niederorschel;200;300;300
+61075;Pfaffschwende;300;300;300
+61076;Reinholterode;200;300;300
+61077;Röhrig;200;300;300
+61078;Rohrberg;200;300;300
+61079;Rüdigershagen;200;300;300
+61081;Rüstungen;300;300;300
+61082;Rustenfelde;200;300;300
+61083;Schachtebich;200;300;300
+61084;Schönhagen;200;300;300
+61085;Schwobfeld;300;300;250
+61086;Sickerode;300;300;300
+61087;Silberhausen;300;300;300
+61088;Silkerode;250;330;300
+61089;Steinbach;200;300;300
+61091;Steinheuterode;200;300;300
+61092;Steinrode;200;300;300
+61093;Stöckey;230;330;300
+61094;Tastungen;200;300;300
+61095;Teistungen;200;300;300
+61096;Thalwenden;200;300;300
+61097;Uder;200;300;300
+61098;Volkerode;300;300;300
+61099;Vollenborn;200;300;300
+61101;Wachstedt;300;300;300
+61102;Wahlhausen;200;300;300
+61103;Wehnde;200;300;300
+61104;Weißenborn-Lüderode;220;320;300
+61105;Wiesenfeld;300;300;300
+61106;Wilbich;300;300;300
+61107;Wingerode;200;300;300
+61108;Wintzingerode;300;330;330
+61109;Worbis, Stadt;200;300;300
+61111;Wüstheuterode;200;300;300
+61112;Zwinge;230;330;300
+62000;Landkreis Nordhausen;210;300;328
+62001;Auleben;200;300;400
+62002;Bleicherode, Stadt;210;300;320
+62003;Branderode;200;300;350
+62004;Buchholz;200;300;300
+62005;Ellrich, Stadt;200;300;300
+62006;Etzelsrode;200;300;300
+62007;Friedrichsthal;220;300;300
+62008;Görsbach;200;300;300
+62009;Großlohra;200;300;250
+62011;Großwechsungen;200;300;250
+62012;Günzerode;250;300;250
+62013;Haferungen;250;300;250
+62014;Hainrode/Hainleite;200;300;250
+62015;Hamma;200;300;320
+62016;Harzungen;200;300;300
+62017;Heringen/Helme, Stadt;200;300;320
+62018;Herrmannsacker;250;300;300
+62019;Hesserode;300;300;200
+62021;Holbach;200;300;350
+62022;Ilfeld;250;300;300
+62023;Immenrode;250;300;250
+62024;Kehmstedt;210;300;320
+62025;Kleinbodungen;200;300;300
+62026;Kleinfurra;200;300;250
+62027;Kleinwechsungen;300;300;250
+62028;Klettenberg;200;300;350
+62029;Kraja;200;300;300
+62031;Liebenrode;200;300;350
+62032;Limlingerode;200;300;350
+62033;Lipprechterode;200;300;300
+62034;Mackenrode;200;300;350
+62035;Mauderode;200;300;300
+62036;Neustadt/Harz;300;300;300
+62037;Niedergebra;200;300;300
+62038;Niedersachswerfen;200;300;300
+62039;Nohra;200;300;250
+62041;Nordhausen, Stadt;232;300;334
+62042;Obergebra;200;300;300
+62043;Obersachswerfen;200;300;350
+62044;Petersdorf;200;300;300
+62045;Pützlingen;200;300;300
+62046;Rehungen;200;300;280
+62047;Rodishain;200;300;300
+62048;Schiedungen;200;300;350
+62049;Sollstedt;200;300;280
+62051;Steigerthal;200;300;300
+62052;Stempeda;200;300;300
+62053;Trebra;200;300;350
+62054;Urbach;200;300;300
+62055;Uthleben;200;300;300
+62056;Werther;200;300;300
+62057;Windehausen;200;300;300
+62058;Wipperdorf;200;300;320
+62059;Wolkramshausen;200;300;250
+62061;Wülfingerode;200;300;280
+63000;Landkreis Wartburgkreis;206;301;295
+63001;Andenhausen;200;300;300
+63002;Bad Liebenstein, Stadt;200;300;310
+63003;Bad Salzungen, Stadt;200;300;300
+63004;Barchfeld;200;300;300
+63005;Behringen;200;300;300
+63006;Berka v. d. Hainich;200;300;250
+63007;Berka/Werra, Stadt;200;300;300
+63008;Bischofroda;200;300;250
+63009;Brunnhartshausen;200;300;300
+63011;Buttlar;200;300;200
+63012;Craula;200;300;300
+63013;Creuzburg, Stadt;200;300;300
+63014;Dankmarshausen;200;300;300
+63015;Dermbach;230;345;280
+63016;Diedorf/Rhön;200;300;300
+63017;Dippach;200;300;260
+63018;Dorndorf;200;300;300
+63019;Ebenshausen;200;300;250
+63021;Eckardtshausen;200;300;300
+63022;Eisenach, Stadt;200;300;300
+63023;Empfertshausen;200;300;260
+63024;Ettenhausen a.d. Suhl;200;300;300
+63025;Etterwinden;200;300;300
+63026;Fischbach/Rhön;200;300;300
+63027;Förtha;200;300;300
+63028;Frankenroda;200;300;250
+63029;Frauensee;200;300;300
+63031;Gehaus;200;300;300
+63032;Geisa, Stadt;250;300;270
+63033;Gerstengrund;200;200;200
+63034;Gerstungen;200;300;300
+63035;Großenlupnitz;200;300;300
+63036;Großensee;200;300;250
+63037;Hallungen;200;300;250
+63038;Hastrungsfeld-Burla;200;300;300
+63039;Ifta;200;300;300
+63041;Immelborn;200;300;300
+63042;Kälberfeld;200;300;300
+63043;Kaltenlengsfeld;200;300;300
+63044;Kaltennordheim, Stadt;200;300;300
+63045;Klings;200;300;300
+63046;Krauthausen;200;300;300
+63048;Lauchröden;200;300;300
+63049;Lauterbach;200;300;250
+63051;Leimbach;200;300;300
+63052;Marksuhl;200;300;300
+63053;Martinroda;200;300;270
+63054;Merkers-Kieselbach;200;300;300
+63055;Mihla;200;300;250
+63058;Nazza;200;300;250
+63059;Neidhartshausen;200;300;300
+63061;Oberellen;200;300;300
+63062;Oechsen;200;300;300
+63063;Pferdsdorf/Rhön;200;300;270
+63064;Reichenbach;200;300;300
+63065;Rockenstuhl;200;308;250
+63066;Ruhla, Stadt;200;300;300
+63067;Sättelstädt;200;300;300
+63068;Schleid;300;300;300
+63069;Schweina;200;320;310
+63071;Seebach;200;300;325
+63072;Stadtlengsfeld, Stadt;200;300;300
+63073;Steinbach;300;320;300
+63074;Sünna;200;300;270
+63075;Tiefenort;200;300;300
+63076;Treffurt, Stadt;200;300;300
+63077;Tüngeda;200;300;300
+63078;Unterbreizbach;200;300;270
+63079;Unterellen;200;300;300
+63081;Urnshausen;200;300;300
+63082;Vacha, Stadt;200;300;270
+63083;Völkershausen;200;300;220
+63084;Weilar;200;300;300
+63085;Wenigenlupnitz;200;300;250
+63086;Wiesenthal;200;300;300
+63087;Wölferbütt;200;300;250
+63088;Wolfsbehringen;200;300;300
+63089;Wolfsburg-Unkeroda;200;300;300
+63092;Wutha-Farnroda;200;300;300
+63093;Zella/Rhön;200;300;300
+63094;Moorgrund;300;300;300
+64000;Landkreis Unstrut-Hainich-Kreis;225;300;324
+64001;Altengottern;240;300;300
+64003;Bad Langensalza, Stadt;215;300;330
+64004;Bad Tennstedt, Stadt;200;300;250
+64005;Ballhausen;200;300;200
+64006;Bickenriede;300;300;300
+64007;Blankenburg;200;300;200
+64008;Bothenheilingen;300;300;200
+64009;Bruchstedt;200;300;200
+64013;Dörna;300;300;300
+64014;Dünwald;252;300;300
+64017;Flarchheim;240;300;300
+64018;Großengottern;240;300;300
+64019;Großvargula;200;300;300
+64021;Haussömmern;200;300;200
+64022;Herbsleben;200;300;300
+64023;Heroldishausen;240;300;300
+64024;Heyerode;200;300;300
+64025;Hildebrandshausen;200;300;300
+64026;Hollenbach;300;300;300
+64027;Hornsömmern;200;300;200
+64029;Issersheilingen;300;300;300
+64032;Kammerforst;250;300;300
+64033;Kirchheilingen;200;300;200
+64034;Kleinkeula;300;300;300
+64035;Kleinwelsbach;300;300;300
+64036;Klettstedt;200;300;200
+64037;Körner;200;300;300
+64038;Kutzleben;200;300;200
+64039;Langula;200;300;250
+64041;Lengefeld;300;300;300
+64042;Lengenfeld unterm Stein;200;300;300
+64043;Marolterode;300;300;250
+64044;Menteroda;200;300;350
+64045;Mittelsömmern;200;300;200
+64046;Mühlhausen/Thüringen, Stadt;200;300;349
+64047;Mülverstedt;250;300;300
+64048;Neunheilingen;300;300;200
+64049;Niederdorla;200;300;250
+64051;Oberdorla;200;300;250
+64052;Obermehler;200;300;210
+64053;Oppershausen;200;300;250
+64055;Rodeberg;300;300;300
+64057;Schlotheim, Stadt;200;300;300
+64058;Schönstedt;250;300;250
+64059;Sollstedt;300;300;320
+64061;Sundhausen;200;300;200
+64062;Tottleben;200;300;200
+64063;Urbach;200;300;320
+64064;Urleben;200;300;300
+64065;Weberstedt;300;300;300
+64066;Weinbergen;240;300;300
+64068;Zella;300;300;300
+64069;Katharinenberg;200;300;300
+64071;Unstruttal;297;300;319
+65000;Landkreis Kyffhäuserkreis;205;300;299
+65001;Abtsbessingen;200;300;300
+65002;Artern/Unstrut, Stadt;200;300;300
+65003;Bad Frankenhausen/Kyffhäuser, Stadt;200;300;300
+65004;Badra;300;300;200
+65005;Bellstedt;200;300;300
+65006;Bendeleben;200;300;300
+65007;Berka;200;300;300
+65008;Borxleben;200;300;300
+65009;Bottendorf;300;300;300
+65011;Bretleben;200;300;300
+65012;Clingen, Stadt;200;300;300
+65013;Donndorf;200;300;400
+65014;Ebeleben, Stadt;200;300;300
+65015;Esperstedt;200;300;300
+65016;Etzleben;200;300;250
+65017;Feldengel;200;300;300
+65018;Freienbessingen;200;300;300
+65019;Gehofen;200;300;300
+65021;Göllingen;200;300;400
+65022;Gorsleben;200;300;400
+65023;Greußen, Stadt;200;300;300
+65024;Großberndten;200;300;300
+65025;Großenehrich, Stadt;200;300;300
+65026;Großfurra;200;300;250
+65027;Günserode;200;300;300
+65029;Hachelbich;300;300;300
+65031;Hauteroda;200;300;300
+65032;Helbedündorf;200;300;300
+65033;Heldrungen, Stadt;200;300;300
+65034;Hemleben;200;300;300
+65035;Heygendorf;200;300;300
+65036;Hohenebra;200;300;250
+65037;Holzengel;200;300;300
+65038;Holzsußra;200;300;300
+65039;Ichstedt;200;300;300
+65041;Immenrode;200;300;300
+65042;Kalbsrieth;200;300;300
+65043;Kirchengel;200;300;300
+65044;Kleinberndten;200;300;250
+65046;Mönchpfiffel-Nikolausrieth;200;300;300
+65047;Nausitz;200;300;300
+65048;Niederbösa;200;300;300
+65049;Niederspier;200;300;300
+65051;Oberbösa;200;300;300
+65052;Oberheldrungen;200;300;300
+65053;Oberspier;200;300;300
+65054;Oldisleben;200;300;300
+65055;Otterstedt;200;300;300
+65056;Reinsdorf;200;300;300
+65057;Ringleben;200;300;300
+65058;Rockstedt;200;300;300
+65059;Rohnstedt;200;300;300
+65061;Roßleben;200;300;300
+65062;Rottleben;200;300;250
+65063;Schernberg;200;300;250
+65064;Schönewerda;300;300;300
+65066;Seega;200;300;400
+65067;Sondershausen, Stadt;200;300;300
+65068;Steinthaleben;200;300;300
+65069;Straußberg;200;300;300
+65071;Thalebra;200;300;210
+65072;Thüringenhausen;200;300;300
+65074;Topfstedt;200;300;300
+65075;Trebra;200;300;300
+65076;Voigtstedt;200;300;300
+65077;Wasserthaleben;200;300;300
+65078;Westerengel;200;300;300
+65079;Westgreußen;200;300;300
+65081;Wiehe, Stadt;200;300;300
+65082;Wolferschwenda;200;300;300
+66000;Landkreis Schmalkalden-Meiningen;222;300;304
+66001;Altersbach;200;300;300
+66002;Aschenhausen;200;300;250
+66003;Bauerbach;200;300;300
+66004;Behrungen;300;300;300
+66005;Belrieth;200;300;300
+66006;Benshausen;200;300;300
+66007;Berkach;300;300;300
+66008;Bermbach;200;300;300
+66009;Bettenhausen;200;300;250
+66011;Bibra;300;300;300
+66012;Birx;200;300;250
+66013;Breitungen/Werra;200;300;300
+66014;Brotterode, Kurort, Stadt;200;300;350
+66015;Christes;200;300;250
+66016;Dillstädt;200;300;350
+66017;Einhausen;250;300;290
+66018;Ellingshausen;200;300;300
+66019;Erbenhausen;200;300;250
+66021;Exdorf;300;300;300
+66022;Fambach;200;300;300
+66023;Floh-Seligenthal;200;300;300
+66024;Frankenheim/Rhön;300;300;350
+66025;Friedelshausen;200;300;300
+66026;Gerthausen;200;300;200
+66027;Helmershausen;200;300;200
+66028;Henneberg;200;300;300
+66029;Hermannsfeld;200;300;300
+66031;Herpf;200;300;300
+66032;Heßles;200;300;300
+66033;Hümpfershausen;200;300;200
+66034;Jüchsen;300;300;300
+66035;Kaltensundheim;200;300;250
+66036;Kaltenwestheim;200;300;300
+66037;Kleinschmalkalden, Kurort;200;300;240
+66038;Kühndorf;200;300;250
+66039;Leutersdorf;200;300;300
+66041;Mehmels;200;300;300
+66042;Meiningen, Stadt;200;300;310
+66043;Melpers;200;300;250
+66044;Metzels;200;300;200
+66045;Neubrunn;300;300;300
+66046;Nordheim;300;300;300
+66047;Oberhof, Stadt;300;300;350
+66048;Oberkatz;200;300;300
+66049;Obermaßfeld-Grimmenthal;200;300;300
+66051;Oberschönau, Kurort;200;300;300
+66052;Oberweid;200;300;250
+66053;Oepfershausen;200;300;300
+66054;Queienfeld;300;300;300
+66055;Rentwertshausen;300;300;300
+66056;Rippershausen;200;300;300
+66057;Ritschenhausen;200;300;300
+66058;Rohr;200;300;250
+66059;Rosa;200;300;300
+66061;Roßdorf;200;300;300
+66062;Rotterode;200;300;300
+66063;Schmalkalden, Kurort, Stadt;200;300;319
+66064;Schwallungen;200;300;300
+66065;Schwarza;200;300;250
+66066;Schwickershausen;300;300;300
+66067;Springstille;200;300;350
+66068;Stedtlingen;200;300;300
+66069;Steinbach-Hallenberg, Kurort, Stadt;200;300;300
+66071;Stepfershausen;200;300;300
+66072;Struth-Helmershof;200;300;300
+66073;Sülzfeld;300;300;300
+66074;Trusetal;300;300;300
+66075;Unterkatz;200;300;200
+66076;Untermaßfeld;200;300;300
+66077;Unterschönau;200;300;300
+66078;Unterweid;200;300;300
+66079;Utendorf;200;300;200
+66081;Vachdorf;200;300;300
+66082;Viernau;200;300;300
+66083;Wahns;250;300;340
+66084;Wallbach;200;300;200
+66085;Walldorf;200;300;300
+66086;Wasungen, Stadt;200;300;300
+66087;Wernshausen;200;300;300
+66088;Wölfershausen;300;300;300
+66089;Wohlmuthausen;200;300;200
+66091;Wolfmannshausen;300;300;300
+66092;Zella-Mehlis, Stadt;200;300;300
+67000;Landkreis Gotha;210;343;351
+67001;Apfelstädt;200;300;300
+67002;Aspach;200;300;300
+67003;Ballstädt;200;300;300
+67004;Bienstädt;200;300;300
+67005;Brüheim;200;300;200
+67006;Bufleben;200;300;300
+67007;Catterfeld;200;300;300
+67008;Crawinkel;200;300;250
+67009;Dachwig;200;300;300
+67011;Döllstädt;200;300;300
+67012;Ebenheim;200;300;200
+67013;Emleben;200;300;300
+67014;Engelsbach;200;300;300
+67015;Ernstroda;200;300;240
+67016;Eschenbergen;200;300;300
+67017;Finsterbergen;200;300;300
+67018;Fischbach;200;300;250
+67019;Friedrichroda, Stadt;200;300;300
+67021;Friedrichswerth;200;300;200
+67022;Friemar;250;300;300
+67023;Fröttstädt;300;300;300
+67024;Gamstädt;300;300;300
+67025;Georgenthal/Thür. Wald;220;300;330
+67026;Gierstädt;200;300;330
+67027;Goldbach;200;300;300
+67028;Gospiteroda;200;300;300
+67029;Gotha, Stadt;200;399;390
+67031;Grabsleben;200;300;300
+67032;Gräfenhain;200;300;300
+67033;Großfahner;200;300;300
+67034;Günthersleben;200;300;300
+67035;Haina;200;300;200
+67036;Herrenhof;200;300;300
+67037;Hochheim;200;300;300
+67038;Hörselgau;300;300;300
+67039;Hohenkirchen;200;300;300
+67041;Ingersleben;200;300;300
+67042;Laucha;200;300;300
+67043;Leina;200;300;300
+67044;Luisenthal;200;300;350
+67045;Mechterstädt;200;300;250
+67046;Metebach;200;300;300
+67047;Molschleben;200;300;300
