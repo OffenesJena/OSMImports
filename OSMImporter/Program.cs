@@ -628,7 +628,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             new OverpassQuery(ThüringenId).
                 WithRelations("boundary",    "administrative").
                 And          ("admin_level", "7").
-                RunAll       ("Gebietsgrenzen/Thüringen_Verwaltungsgemeinschaften.json",
+                RunAll       ("Gebietsgrenzen/Thüringen_Verwaltungsgemeinschaften",
                               SecretKey, Passphrase);
 
             new OverpassQuery(ThüringenId).
