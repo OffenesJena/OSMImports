@@ -640,7 +640,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 WithRelations("boundary",    "administrative").And("name",        "Jena").
                 WithRelations("boundary",    "administrative").And("name",        "Gera").
                 WithRelations("boundary",    "administrative").And("name",        "Suhl").
-                RunAll       ("Gebietsgrenzen/Thüringen_Gemeinden.json",
+                RunAll       ("Gebietsgrenzen/Thüringen_Gemeinden",
                               SecretKey, Passphrase);
 
 
