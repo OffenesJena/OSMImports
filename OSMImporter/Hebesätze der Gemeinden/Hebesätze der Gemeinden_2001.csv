@@ -1,4 +1,4 @@
-51000;Erfurt, Stadt;200;350;400
+ï»¿51000;Erfurt, Stadt;200;350;400
 52000;Gera, Stadt;250;350;380
 53000;Jena, Stadt;220;380;380
 54000;Suhl, Stadt;250;350;390
@@ -18,13 +18,13 @@
 61015;Brehme;200;300;300
 61016;Breitenbach;300;320;320
 61017;Breitenworbis;235;320;320
-61018;Büttstedt;300;300;300
+61018;BÃ¼ttstedt;300;300;300
 61019;Buhla;200;300;300
 61021;Burgwalde;200;300;300
 61022;Deuna;200;300;300
 61023;Dieterode;300;300;300
 61024;Dietzenrode/Vatterode;200;300;300
-61025;Dingelstädt, Stadt;300;360;340
+61025;DingelstÃ¤dt, Stadt;300;360;340
 61026;Ecklingerode;200;300;300
 61027;Effelder;300;300;300
 61028;Eichstruth;200;300;300
@@ -37,8 +37,8 @@
 61037;Gernrode;235;320;320
 61038;Gerterode;200;300;300
 61039;Glasehausen;200;300;300
-61041;Großbartloff;300;300;300
-61042;Großbodungen;200;300;300
+61041;GroÃŸbartloff;300;300;300
+61042;GroÃŸbodungen;200;300;300
 61043;Hausen;200;300;300
 61044;Haynrode;235;320;320
 61045;Heilbad Heiligenstadt, Stadt;250;320;340
@@ -48,7 +48,7 @@
 61049;Hohes Kreuz;300;300;300
 61051;Holungen;200;300;300
 61052;Hundeshagen;200;300;300
-61053;Jützenbach;220;320;300
+61053;JÃ¼tzenbach;220;320;300
 61054;Kallmerode;200;300;300
 61055;Kefferhausen;300;300;300
 61056;Kella;300;300;300
@@ -57,7 +57,7 @@
 61059;Kleinbartloff;200;300;300
 61061;Kreuzebra;300;300;300
 61062;Krombach;300;300;300
-61063;Küllstedt;300;300;260
+61063;KÃ¼llstedt;300;300;260
 61064;Leinefelde, Stadt;300;330;330
 61065;Lenterode;200;300;300
 61066;Lindewerra;200;300;300
@@ -68,11 +68,11 @@
 61074;Niederorschel;200;300;300
 61075;Pfaffschwende;300;300;300
 61076;Reinholterode;200;300;300
-61077;Röhrig;200;300;300
+61077;RÃ¶hrig;200;300;300
 61078;Rohrberg;200;300;300
 61082;Rustenfelde;200;300;300
 61083;Schachtebich;200;300;300
-61084;Schönhagen;200;300;300
+61084;SchÃ¶nhagen;200;300;300
 61085;Schwobfeld;300;300;300
 61086;Sickerode;300;300;300
 61087;Silberhausen;300;300;300
@@ -80,7 +80,7 @@
 61089;Steinbach;200;300;300
 61091;Steinheuterode;200;300;300
 61092;Steinrode;200;300;300
-61093;Stöckey;230;330;300
+61093;StÃ¶ckey;230;330;300
 61094;Tastungen;200;300;300
 61096;Thalwenden;200;300;300
 61097;Uder;200;300;300
@@ -89,12 +89,12 @@
 61101;Wachstedt;300;300;300
 61102;Wahlhausen;200;300;300
 61103;Wehnde;200;300;300
-61104;Weißenborn-Lüderode;220;320;300
+61104;WeiÃŸenborn-LÃ¼derode;220;320;300
 61105;Wiesenfeld;300;300;300
 61107;Wingerode;200;300;300
 61108;Wintzingerode;300;330;330
 61109;Worbis, Stadt;250;330;320
-61111;Wüstheuterode;200;300;300
+61111;WÃ¼stheuterode;200;300;300
 61112;Zwinge;230;330;300
 61113;Schimberg;300;300;300
 61114;Teistungen;200;300;300
@@ -105,8 +105,8 @@
 62005;Ellrich, Stadt;215;300;310
 62006;Etzelsrode;200;300;300
 62007;Friedrichsthal;220;300;300
-62008;Görsbach;235;320;320
-62009;Großlohra;200;300;250
+62008;GÃ¶rsbach;235;320;320
+62009;GroÃŸlohra;200;300;250
 62014;Hainrode/Hainleite;200;300;250
 62015;Hamma;235;320;320
 62016;Harzungen;200;300;300
@@ -149,19 +149,19 @@
 63013;Creuzburg, Stadt;200;300;300
 63014;Dankmarshausen;200;300;300
 63015;Dermbach;210;310;290
-63016;Diedorf/Rhön;200;300;300
+63016;Diedorf/RhÃ¶n;200;300;300
 63017;Dippach;200;300;300
 63018;Dorndorf;200;300;300
 63019;Ebenshausen;200;300;250
 63023;Empfertshausen;200;300;300
 63024;Ettenhausen a.d. Suhl;200;300;300
-63026;Fischbach/Rhön;200;300;300
+63026;Fischbach/RhÃ¶n;200;300;300
 63028;Frankenroda;235;320;320
 63029;Frauensee;200;300;300
 63032;Geisa, Stadt;250;300;270
 63033;Gerstengrund;200;200;200
 63034;Gerstungen;200;300;300
-63036;Großensee;200;300;250
+63036;GroÃŸensee;200;300;250
 63037;Hallungen;200;300;250
 63039;Ifta;200;300;300
 63041;Immelborn;200;300;300
@@ -169,7 +169,7 @@
 63044;Kaltennordheim, Stadt;200;300;300
 63045;Klings;200;300;310
 63046;Krauthausen;200;300;300
-63048;Lauchröden;200;300;300
+63048;LauchrÃ¶den;200;300;300
 63049;Lauterbach;200;300;250
 63051;Leimbach;200;300;300
 63052;Marksuhl;200;300;300
@@ -193,15 +193,15 @@
 63079;Unterellen;200;300;300
 63081;Urnshausen;200;300;300
 63082;Vacha, Stadt;200;300;300
-63083;Völkershausen;200;300;300
+63083;VÃ¶lkershausen;200;300;300
 63084;Weilar;200;300;300
 63086;Wiesenthal;200;300;300
-63087;Wölferbütt;200;300;250
+63087;WÃ¶lferbÃ¼tt;200;300;250
 63089;Wolfsburg-Unkeroda;200;300;300
 63092;Wutha-Farnroda;200;300;330
-63093;Zella/Rhön;200;300;300
+63093;Zella/RhÃ¶n;200;300;300
 63094;Moorgrund;300;300;300
-63095;Hörselberg;235;320;320
+63095;HÃ¶rselberg;235;320;320
 63096;Behringen;215;300;300
 64000;Landkreis Unstrut-Hainich-Kreis;233;300;326
 64001;Altengottern;240;300;300
@@ -211,29 +211,29 @@
 64007;Blankenburg;200;300;200
 64008;Bothenheilingen;300;300;300
 64009;Bruchstedt;200;300;200
-64014;Dünwald;300;300;300
+64014;DÃ¼nwald;300;300;300
 64017;Flarchheim;240;300;300
-64018;Großengottern;240;300;300
-64019;Großvargula;200;300;300
-64021;Haussömmern;200;300;300
+64018;GroÃŸengottern;240;300;300
+64019;GroÃŸvargula;200;300;300
+64021;HaussÃ¶mmern;200;300;300
 64022;Herbsleben;200;300;300
 64023;Heroldishausen;240;300;300
 64024;Heyerode;200;300;300
 64025;Hildebrandshausen;200;300;300
-64027;Hornsömmern;235;320;320
+64027;HornsÃ¶mmern;235;320;320
 64029;Issersheilingen;300;300;300
 64032;Kammerforst;250;300;300
 64033;Kirchheilingen;200;300;300
 64035;Kleinwelsbach;300;300;300
 64036;Klettstedt;200;300;200
-64037;Körner;300;300;300
+64037;KÃ¶rner;300;300;300
 64038;Kutzleben;200;300;200
 64039;Langula;200;300;250
 64042;Lengenfeld unterm Stein;200;300;300
 64043;Marolterode;300;320;320
-64045;Mittelsömmern;200;300;200
-64046;Mühlhausen/Thüringen, Stadt;200;300;350
-64047;Mülverstedt;250;250;300
+64045;MittelsÃ¶mmern;200;300;200
+64046;MÃ¼hlhausen/ThÃ¼ringen, Stadt;200;300;350
+64047;MÃ¼lverstedt;250;250;300
 64048;Neunheilingen;300;300;300
 64049;Niederdorla;200;300;250
 64051;Oberdorla;200;300;250
@@ -241,7 +241,7 @@
 64053;Oppershausen;200;300;250
 64055;Rodeberg;300;300;300
 64057;Schlotheim, Stadt;200;300;300
-64058;Schönstedt;250;300;250
+64058;SchÃ¶nstedt;250;300;250
 64061;Sundhausen;200;300;300
 64062;Tottleben;200;300;200
 64064;Urleben;200;300;250
@@ -251,10 +251,10 @@
 64071;Unstruttal;300;300;320
 64072;Menteroda;300;300;350
 64073;Anrode;300;300;300
-65000;Landkreis Kyffhäuserkreis;224;316;330
+65000;Landkreis KyffhÃ¤userkreis;224;316;330
 65001;Abtsbessingen;200;300;300
 65002;Artern/Unstrut, Stadt;235;320;330
-65003;Bad Frankenhausen/Kyffhäuser, Stadt;235;320;330
+65003;Bad Frankenhausen/KyffhÃ¤user, Stadt;235;320;330
 65004;Badra;300;300;200
 65005;Bellstedt;235;320;320
 65006;Bendeleben;300;300;300
@@ -267,43 +267,43 @@
 65016;Etzleben;300;300;300
 65018;Freienbessingen;200;300;300
 65019;Gehofen;235;320;320
-65021;Göllingen;235;320;320
+65021;GÃ¶llingen;235;320;320
 65022;Gorsleben;215;300;300
-65023;Greußen, Stadt;215;300;300
-65027;Günserode;200;300;300
+65023;GreuÃŸen, Stadt;215;300;300
+65027;GÃ¼nserode;200;300;300
 65029;Hachelbich;300;300;300
 65031;Hauteroda;250;300;300
-65032;Helbedündorf;200;300;300
+65032;HelbedÃ¼ndorf;200;300;300
 65033;Heldrungen, Stadt;225;300;300
 65034;Hemleben;250;310;300
 65035;Heygendorf;200;300;300
-65038;Holzsußra;200;300;300
+65038;HolzsuÃŸra;200;300;300
 65039;Ichstedt;215;300;300
 65042;Kalbsrieth;200;300;300
-65046;Mönchpfiffel-Nikolausrieth;200;300;300
+65046;MÃ¶nchpfiffel-Nikolausrieth;200;300;300
 65047;Nausitz;200;300;300
-65048;Niederbösa;200;300;300
-65051;Oberbösa;200;300;300
+65048;NiederbÃ¶sa;200;300;300
+65051;OberbÃ¶sa;200;300;300
 65052;Oberheldrungen;250;300;300
 65054;Oldisleben;300;325;325
 65056;Reinsdorf;200;300;300
 65057;Ringleben;200;300;300
 65058;Rockstedt;200;300;300
-65061;Roßleben, Stadt;310;320;320
+65061;RoÃŸleben, Stadt;310;320;320
 65062;Rottleben;235;320;320
 65066;Seega;200;300;200
 65067;Sondershausen, Stadt;235;330;340
 65068;Steinthaleben;235;320;320
-65072;Thüringenhausen;200;300;300
+65072;ThÃ¼ringenhausen;200;300;300
 65074;Topfstedt;200;300;300
 65075;Trebra;200;300;300
 65076;Voigtstedt;200;300;300
 65077;Wasserthaleben;200;300;300
-65079;Westgreußen;200;300;300
+65079;WestgreuÃŸen;200;300;300
 65081;Wiehe, Stadt;200;300;300
 65082;Wolferschwenda;200;300;300
 65083;Schernberg;215;300;300
-65084;Großenehrich, Stadt;200;300;300
+65084;GroÃŸenehrich, Stadt;200;300;300
 66000;Landkreis Schmalkalden-Meiningen;231;309;316
 66001;Altersbach;200;300;300
 66002;Aschenhausen;215;300;320
@@ -318,24 +318,24 @@
 66013;Breitungen/Werra;200;300;300
 66014;Brotterode, Kurort, Stadt;235;320;350
 66015;Christes;200;300;250
-66016;Dillstädt;200;300;350
+66016;DillstÃ¤dt;200;300;350
 66017;Einhausen;250;300;300
 66018;Ellingshausen;200;300;300
 66019;Erbenhausen;215;300;300
 66021;Exdorf;300;300;300
 66022;Fambach;200;300;300
 66023;Floh-Seligenthal;200;300;300
-66024;Frankenheim/Rhön;300;300;300
+66024;Frankenheim/RhÃ¶n;300;300;300
 66025;Friedelshausen;200;300;300
 66028;Henneberg;200;300;300
 66031;Herpf;200;300;300
-66032;Heßles;235;320;300
-66033;Hümpfershausen;200;300;300
-66034;Jüchsen;300;300;300
+66032;HeÃŸles;235;320;300
+66033;HÃ¼mpfershausen;200;300;300
+66034;JÃ¼chsen;300;300;300
 66035;Kaltensundheim;215;300;300
 66036;Kaltenwestheim;215;300;300
 66037;Kleinschmalkalden, Kurort;200;300;300
-66038;Kühndorf;200;300;250
+66038;KÃ¼hndorf;200;300;250
 66039;Leutersdorf;200;300;300
 66041;Mehmels;215;300;300
 66042;Meiningen, Stadt;235;330;340
@@ -345,8 +345,8 @@
 66046;Nordheim;300;300;300
 66047;Oberhof, Stadt;300;350;350
 66048;Oberkatz;215;300;300
-66049;Obermaßfeld-Grimmenthal;200;300;300
-66051;Oberschönau, Kurort;200;300;300
+66049;ObermaÃŸfeld-Grimmenthal;200;300;300
+66051;OberschÃ¶nau, Kurort;200;300;300
 66052;Oberweid;215;300;300
 66053;Oepfershausen;235;320;320
 66054;Queienfeld;300;300;300
@@ -355,7 +355,7 @@
 66057;Ritschenhausen;200;300;300
 66058;Rohr;300;300;300
 66059;Rosa;200;300;300
-66061;Roßdorf;200;300;300
+66061;RoÃŸdorf;200;300;300
 66062;Rotterode;200;300;300
 66063;Schmalkalden, Kurort, Stadt;200;300;320
 66064;Schwallungen;225;300;325
@@ -364,11 +364,11 @@
 66067;Springstille;200;300;350
 66069;Steinbach-Hallenberg, Kurort, Stadt;215;300;310
 66071;Stepfershausen;235;320;320
-66073;Sülzfeld;300;300;300
+66073;SÃ¼lzfeld;300;300;300
 66074;Trusetal;300;300;300
 66075;Unterkatz;200;300;300
-66076;Untermaßfeld;235;320;320
-66077;Unterschönau;200;300;300
+66076;UntermaÃŸfeld;235;320;320
+66077;UnterschÃ¶nau;200;300;300
 66078;Unterweid;200;300;300
 66079;Utendorf;200;300;200
 66081;Vachdorf;200;300;300
@@ -378,20 +378,20 @@
 66085;Walldorf;200;300;300
 66086;Wasungen, Stadt;215;300;300
 66087;Wernshausen;235;320;320
-66088;Wölfershausen;300;300;300
+66088;WÃ¶lfershausen;300;300;300
 66091;Wolfmannshausen;300;300;300
 66092;Zella-Mehlis, Stadt;200;300;300
-66093;Rhönblick;200;300;300
+66093;RhÃ¶nblick;200;300;300
 67000;Landkreis Gotha;216;344;353
-67001;Apfelstädt;200;300;300
+67001;ApfelstÃ¤dt;200;300;300
 67002;Aspach;200;300;300
-67003;Ballstädt;200;300;300
-67004;Bienstädt;200;300;300
-67005;Brüheim;200;300;200
+67003;BallstÃ¤dt;200;300;300
+67004;BienstÃ¤dt;200;300;300
+67005;BrÃ¼heim;200;300;200
 67006;Bufleben;215;300;300
 67008;Crawinkel;215;300;300
 67009;Dachwig;200;320;320
-67011;Döllstädt;200;320;320
+67011;DÃ¶llstÃ¤dt;200;320;320
 67012;Ebenheim;200;300;200
 67013;Emleben;220;300;330
 67015;Ernstroda;215;320;320
@@ -400,89 +400,89 @@
 67019;Friedrichroda, Stadt;215;320;330
 67021;Friedrichswerth;200;300;200
 67022;Friemar;300;360;360
-67023;Fröttstädt;300;300;350
-67024;Gamstädt;300;300;300
-67025;Georgenthal/Thür. Wald;220;300;330
-67026;Gierstädt;200;320;330
+67023;FrÃ¶ttstÃ¤dt;300;300;350
+67024;GamstÃ¤dt;300;300;300
+67025;Georgenthal/ThÃ¼r. Wald;220;300;330
+67026;GierstÃ¤dt;200;320;330
 67027;Goldbach;200;300;300
 67029;Gotha, Stadt;220;400;390
 67031;Grabsleben;235;350;350
-67032;Gräfenhain;235;320;320
-67033;Großfahner;200;320;300
+67032;GrÃ¤fenhain;235;320;320
+67033;GroÃŸfahner;200;320;300
 67035;Haina;200;300;300
 67036;Herrenhof;250;330;350
 67037;Hochheim;200;300;300
-67038;Hörselgau;235;320;320
+67038;HÃ¶rselgau;235;320;320
 67039;Hohenkirchen;250;330;330
 67041;Ingersleben;200;320;300
 67042;Laucha;200;300;300
 67044;Luisenthal;200;300;350
-67045;Mechterstädt;200;300;250
+67045;MechterstÃ¤dt;200;300;250
 67046;Metebach;200;300;300
 67047;Molschleben;200;300;300
-67048;Mühlberg;200;300;300
+67048;MÃ¼hlberg;200;300;300
 67051;Neudietendorf;200;320;320
 67052;Nottleben;300;300;300
 67053;Ohrdruf, Stadt;200;300;350
 67054;Petriroda;220;300;300
 67055;Pferdingsleben;200;300;300
-67056;Remstädt;200;300;300
+67056;RemstÃ¤dt;200;300;300
 67059;Schwabhausen;200;300;300
 67062;Seebergen;200;300;300
 67063;Sonneborn;200;300;300
-67064;Tabarz/Thür. Wald;300;320;330
-67065;Tambach-Dietharz/Thür. Wald, Stadt;200;300;350
+67064;Tabarz/ThÃ¼r. Wald;300;320;330
+67065;Tambach-Dietharz/ThÃ¼r. Wald, Stadt;200;300;350
 67066;Teutleben;200;300;300
 67067;Tonna;250;320;320
-67068;Tröchtelborn;200;300;300
-67069;Trügleben;200;300;300
-67071;Tüttleben;200;300;300
+67068;TrÃ¶chtelborn;200;300;300
+67069;TrÃ¼gleben;200;300;300
+67071;TÃ¼ttleben;200;300;300
 67072;Waltershausen, Stadt;235;320;350
 67073;Wandersleben;200;300;350
 67074;Wangenheim;200;300;300
 67075;Warza;200;300;300
 67077;Weingarten;200;300;200
 67078;Westhausen;240;330;325
-67081;Wölfis;200;300;350
+67081;WÃ¶lfis;200;300;350
 67082;Zimmernsupra;200;300;300
 67083;Leinatal;200;300;300
 67084;Emsetal;215;400;300
-67085;Günthersleben-Wechmar;215;300;300
-68000;Landkreis Sömmerda;232;310;301
+67085;GÃ¼nthersleben-Wechmar;215;300;300
+68000;Landkreis SÃ¶mmerda;232;310;301
 68001;Alperstedt;250;300;300
 68002;Andisleben;200;300;300
 68003;Beichlingen;200;300;300
 68004;Bilzingsleben;215;300;300
-68005;Büchel;250;300;280
-68006;Buttstädt, Stadt;300;320;300
+68005;BÃ¼chel;250;300;280
+68006;ButtstÃ¤dt, Stadt;300;320;300
 68007;Eckstedt;250;300;300
 68008;Ellersleben;200;300;300
 68009;Elxleben;200;300;330
-68011;Eßleben-Teutleben;250;320;320
-68012;Frömmstedt;200;300;280
-68013;Gangloffsömmern;200;300;300
+68011;EÃŸleben-Teutleben;250;320;320
+68012;FrÃ¶mmstedt;200;300;280
+68013;GangloffsÃ¶mmern;200;300;300
 68014;Gebesee, Stadt;200;300;300
 68015;Griefstedt;215;300;280
-68016;Großbrembach;200;300;300
-68017;Großmölsen;215;300;300
-68018;Großmonra;200;300;250
-68019;Großneuhausen;200;300;400
-68021;Großrudestedt;250;300;280
-68022;Günstedt;250;300;250
+68016;GroÃŸbrembach;200;300;300
+68017;GroÃŸmÃ¶lsen;215;300;300
+68018;GroÃŸmonra;200;300;250
+68019;GroÃŸneuhausen;200;300;400
+68021;GroÃŸrudestedt;250;300;280
+68022;GÃ¼nstedt;250;300;250
 68023;Guthmannshausen;235;320;320
 68024;Hardisleben;200;300;300
-68025;Haßleben;300;300;300
+68025;HaÃŸleben;300;300;300
 68026;Henschleben;200;300;300
 68027;Herrnschwende;250;300;270
 68028;Kannawurf;215;300;300
-68029;Kindelbrück, Stadt;215;300;280
+68029;KindelbrÃ¼ck, Stadt;215;300;280
 68031;Kleinbrembach;200;300;300
-68032;Kleinmölsen;215;300;300
+68032;KleinmÃ¶lsen;215;300;300
 68033;Kleinneuhausen;200;300;300
-68034;Kölleda, Stadt;250;350;270
+68034;KÃ¶lleda, Stadt;250;350;270
 68035;Mannstedt;250;320;320
 68036;Markvippach;250;300;350
-68037;Nöda;200;300;275
+68037;NÃ¶da;200;300;275
 68038;Olbersleben;235;320;320
 68039;Ollendorf;215;300;300
 68041;Ostramondra;200;300;300
@@ -492,25 +492,25 @@
 68045;Ringleben;200;300;300
 68046;Rudersdorf;300;320;320
 68047;Schillingstedt;200;300;300
-68048;Schloßvippach;250;300;350
+68048;SchloÃŸvippach;250;300;350
 68049;Schwerstedt;200;300;300
-68051;Sömmerda, Stadt;200;300;290
-68052;Sprötau;200;300;250
-68053;Straußfurt;235;320;320
+68051;SÃ¶mmerda, Stadt;200;300;290
+68052;SprÃ¶tau;200;300;250
+68053;StrauÃŸfurt;235;320;320
 68055;Udestedt;250;300;300
 68056;Vogelsberg;250;300;300
 68057;Walschleben;200;300;330
-68058;Weißensee, Stadt;300;300;340
+68058;WeiÃŸensee, Stadt;300;300;340
 68059;Werningshausen;200;300;250
 68061;Witterda;200;300;300
 68062;Wundersleben;235;320;320
 69000;Landkreis Hildburghausen;238;308;305
-69001;Ahlstädt;200;300;300
+69001;AhlstÃ¤dt;200;300;300
 69002;Bad Colberg-Heldburg, Stadt;235;320;320
 69003;Beinerstadt;200;300;300
 69004;Bischofrod;300;300;300
 69005;Bockstadt;300;150;300
-69006;Brünn/Thür.;200;300;300
+69006;BrÃ¼nn/ThÃ¼r.;200;300;300
 69008;Dingsleben;200;300;300
 69009;Ehrenberg;200;300;300
 69011;Eichenberg;200;300;300
@@ -521,16 +521,16 @@
 69017;Grub;200;300;300
 69018;Haina;200;300;300
 69019;Hellingen;300;300;300
-69021;Henfstädt;200;300;300
+69021;HenfstÃ¤dt;200;300;300
 69024;Hildburghausen, Stadt;300;315;310
-69025;Kloster Veßra;200;300;300
+69025;Kloster VeÃŸra;200;300;300
 69026;Lengfeld;200;300;300
 69028;Marisfeld;200;300;300
 69031;Mendhausen;200;300;300
 69032;Milz;200;300;300
 69035;Oberstadt;200;300;300
 69037;Reurieth;200;300;300
-69038;Römhild, Stadt;200;300;300
+69038;RÃ¶mhild, Stadt;200;300;300
 69039;Sachsenbrunn;200;300;300
 69041;Schlechtsart;300;320;320
 69042;Schleusegrund;250;300;300
@@ -553,8 +553,8 @@
 70002;Altenfeld;200;300;300
 70003;Angelroda;200;300;300
 70004;Arnstadt, Stadt;200;300;350
-70005;Böhlen;200;300;300
-70006;Bösleben-Wüllersleben;235;320;320
+70005;BÃ¶hlen;200;300;300
+70006;BÃ¶sleben-WÃ¼llersleben;235;320;320
 70008;Dornheim;250;300;300
 70011;Elgersburg;200;300;300
 70012;Elleben;300;300;300
@@ -568,8 +568,8 @@
 70021;Geschwenda;235;320;320
 70022;Gillersdorf;200;300;300
 70023;Gossel;215;300;300
-70024;Gräfenroda;215;300;300
-70025;Großbreitenbach, Stadt;235;320;320
+70024;GrÃ¤fenroda;215;300;300
+70025;GroÃŸbreitenbach, Stadt;235;320;320
 70027;Herschdorf;235;320;320
 70028;Ichtershausen;300;300;300
 70029;Ilmenau, Stadt;200;316;320
@@ -577,16 +577,16 @@
 70032;Langewiesen, Stadt;235;310;310
 70033;Liebenstein;200;300;300
 70034;Martinroda;200;300;300
-70035;Möhrenbach;215;300;300
-70037;Neusiß;200;300;300
+70035;MÃ¶hrenbach;215;300;300
+70037;NeusiÃŸ;200;300;300
 70038;Neustadt am Rennsteig;235;320;330
-70041;Osthausen-Wülfershausen;250;320;320
+70041;Osthausen-WÃ¼lfershausen;250;320;320
 70042;Pennewitz;235;320;330
 70043;Plaue, Stadt;250;350;350
 70044;Rockhausen;300;300;225
 70046;Schmiedefeld am Rennsteig;215;320;340
 70048;Stadtilm, Stadt;200;300;350
-70049;Stützerbach;215;321;321
+70049;StÃ¼tzerbach;215;321;321
 70051;Wachsenburggemeinde;300;300;300
 70052;Wildenspring;200;300;300
 70053;Wipfratal;235;320;320
@@ -599,21 +599,21 @@
 71003;Bad Berka, Stadt;200;300;320
 71004;Bad Sulza, Stadt;300;400;320
 71005;Ballstedt;215;320;320
-71006;Bechstedtstraß;200;300;300
+71006;BechstedtstraÃŸ;200;300;300
 71007;Berlstedt;200;300;300
 71008;Blankenhain, Stadt;235;330;345
 71009;Buchfart;200;300;300
 71011;Buttelstedt, Stadt;235;320;320
 71012;Daasdorf a. Berge;200;300;300
-71013;Döbritschen;200;300;300
+71013;DÃ¶britschen;200;300;300
 71015;Eberstedt;300;300;250
 71017;Ettersburg;215;300;300
 71018;Flurstedt;300;300;300
 71019;Frankendorf;200;300;300
 71021;Gebstedt;250;300;320
-71022;Großheringen;200;300;250
-71023;Großobringen;250;350;350
-71025;Großschwabhausen;200;300;250
+71022;GroÃŸheringen;200;300;250
+71023;GroÃŸobringen;250;350;350
+71025;GroÃŸschwabhausen;200;300;250
 71026;Gutendorf;300;300;350
 71027;Hammerstedt;200;300;300
 71028;Heichelheim;235;320;320
@@ -628,7 +628,7 @@
 71039;Kleinobringen;215;320;400
 71042;Kleinschwabhausen;200;300;300
 71043;Klettbach;225;325;300
-71044;Ködderitzsch;340;330;320
+71044;KÃ¶dderitzsch;340;330;320
 71046;Kranichfeld, Stadt;240;325;325
 71047;Krautheim;200;300;300
 71048;Kromsdorf;300;300;300
@@ -639,19 +639,19 @@
 71054;Mattstedt;300;300;300
 71055;Mechelroda;200;300;280
 71056;Mellingen;200;300;300
-71057;Mönchenholzhausen;200;300;300
+71057;MÃ¶nchenholzhausen;200;300;300
 71059;Nauendorf;200;300;300
 71061;Neumark, Stadt;250;300;300
-71062;Niederreißen;220;300;260
-71063;Niederroßla;300;300;300
+71062;NiederreiÃŸen;220;300;260
+71063;NiederroÃŸla;300;300;300
 71064;Niedertrebra;300;500;300
 71065;Niederzimmern;200;300;300
 71066;Nirmsdorf;300;300;275
 71067;Nohra;200;300;300
-71068;Oberreißen;220;300;300
+71068;OberreiÃŸen;220;300;300
 71069;Obertrebra;300;300;300
 71071;Oettern;200;300;300
-71072;Oßmannstedt;300;300;275
+71072;OÃŸmannstedt;300;300;275
 71073;Ottstedt a. Berge;250;350;300
 71074;Pfiffelbach;300;300;300
 71076;Ramsla;200;300;300
@@ -676,11 +676,11 @@
 72000;Landkreis Sonneberg;297;304;320
 72001;Bachfeld;300;300;300
 72002;Effelder-Rauenstein;300;300;300
-72005;Föritz;300;300;320
+72005;FÃ¶ritz;300;300;320
 72006;Goldisthal;235;320;400
 72009;Judenbach;300;300;300
 72011;Lauscha, Stadt;300;320;320
-72012;Mengersgereuth-Hämmern;300;300;300
+72012;Mengersgereuth-HÃ¤mmern;300;300;300
 72013;Neuhaus am Rennweg, Stadt;235;325;335
 72014;Neuhaus-Schierschnitz;300;300;300
 72015;Schalkau, Stadt;300;300;300
@@ -700,55 +700,55 @@
 73009;Birkigt;235;320;320
 73013;Cursdorf;250;330;300
 73014;Deesbach;235;320;320
-73017;Döschnitz;200;300;300
+73017;DÃ¶schnitz;200;300;300
 73019;Dorndorf;200;300;300
-73021;Dröbischau;215;300;300
+73021;DrÃ¶bischau;215;300;300
 73023;Engerda;235;320;320
-73027;Goßwitz;200;300;300
-73028;Gräfenthal, Stadt;300;320;320
-73029;Großkochberg;200;300;300
+73027;GoÃŸwitz;200;300;300
+73028;GrÃ¤fenthal, Stadt;300;320;320
+73029;GroÃŸkochberg;200;300;300
 73032;Heilingen;200;300;300
 73035;Hohenwarte;200;300;350
 73036;Kamsdorf;300;300;350
-73037;Katzhütte;200;300;300
+73037;KatzhÃ¼tte;200;300;300
 73038;Kaulsdorf;210;310;350
 73039;Kirchhasel;200;300;300
-73042;Königsee, Stadt;300;300;305
-73043;Könitz;200;300;300
-73045;Lausnitz b. Pößneck;200;300;300
+73042;KÃ¶nigsee, Stadt;300;300;305
+73043;KÃ¶nitz;200;300;300
+73045;Lausnitz b. PÃ¶ÃŸneck;200;300;300
 73046;Lehesten, Stadt;240;340;300
 73049;Lichte;200;300;350
 73051;Lichtenhain/Bergbahn;200;300;400
-73053;Marktgölitz;250;300;300
+73053;MarktgÃ¶litz;250;300;300
 73054;Mellenbach-Glasbach;200;300;300
 73055;Meura;200;300;300
-73056;Meuselbach-Schwarzmühle;235;320;320
+73056;Meuselbach-SchwarzmÃ¼hle;235;320;320
 73062;Niederkrossen;200;300;300
 73063;Oberhain;200;300;300
-73065;Oberweißbach/Thür. Wald, Stadt;200;300;300
+73065;OberweiÃŸbach/ThÃ¼r. Wald, Stadt;200;300;300
 73066;Piesau;215;300;350
 73067;Probstzella;200;300;350
 73068;Reichmannsdorf;300;300;300
-73073;Rödelwitz;200;300;300
+73073;RÃ¶delwitz;200;300;300
 73074;Rohrbach;200;300;300
 73075;Rottenbach;200;300;300
 73076;Rudolstadt, Stadt;200;300;350
 73077;Saalfeld/Saale, Stadt;200;300;350
-73078;Schloßkulm;200;300;300
+73078;SchloÃŸkulm;200;300;300
 73079;Schmiedefeld;350;320;350
 73081;Schmieden;200;300;300
 73082;Schwarzburg;215;300;300
 73084;Sitzendorf;215;300;300
 73089;Teichweiden;200;300;300
-73092;Uhlstädt;215;300;300
-73094;Unterweißbach;215;300;300
+73092;UhlstÃ¤dt;215;300;300
+73094;UnterweiÃŸbach;215;300;300
 73095;Unterwellenborn;300;300;340
 73101;Wittgendorf;200;300;300
 73104;Zeutsch;200;300;300
 73105;Remda-Teichel, Stadt;240;325;320
 73106;Leutenberg, Stadt;300;300;300
 73107;Drognitz;200;300;300
-73108;Saalfelder Höhe;200;300;300
+73108;Saalfelder HÃ¶he;200;300;300
 74000;Landkreis Saale-Holzland-Kreis;209;309;315
 74001;Albersdorf;200;300;320
 74002;Altenberga;200;300;300
@@ -758,7 +758,7 @@
 74006;Bollberg;200;300;300
 74007;Bremsnitz;200;300;300
 74008;Bucha;300;300;300
-74009;Bürgel, Stadt;215;310;300
+74009;BÃ¼rgel, Stadt;215;310;300
 74011;Camburg, Stadt;200;300;300
 74012;Crossen an der Elster;200;300;300
 74013;Dornburg/Saale, Stadt;235;320;320
@@ -766,17 +766,17 @@
 74016;Eichenberg;200;300;300
 74017;Eineborn;200;300;300
 74018;Eisenberg, Stadt;235;320;330
-74019;Frauenprießnitz;200;300;300
+74019;FrauenprieÃŸnitz;200;300;300
 74021;Freienorla;235;320;320
 74022;Geisenhain;200;300;300
 74024;Gneus;200;300;300
-74025;Gösen;200;300;300
+74025;GÃ¶sen;200;300;300
 74026;Golmsdorf;235;320;320
-74028;Graitschen b. Bürgel;200;300;300
-74029;Großbockedra;200;300;300
-74031;Großeutersdorf;200;300;300
-74032;Großlöbichau;235;320;320
-74033;Großpürschütz;200;300;400
+74028;Graitschen b. BÃ¼rgel;200;300;300
+74029;GroÃŸbockedra;200;300;300
+74031;GroÃŸeutersdorf;200;300;300
+74032;GroÃŸlÃ¶bichau;235;320;320
+74033;GroÃŸpÃ¼rschÃ¼tz;200;300;400
 74034;Gumperda;200;300;300
 74036;Hainichen;200;300;300
 74037;Hainspitz;235;320;330
@@ -784,7 +784,7 @@
 74039;Heideland;200;300;300
 74041;Hermsdorf, Stadt;200;300;300
 74042;Hummelshain;200;300;300
-74043;Jenalöbnitz;200;300;300
+74043;JenalÃ¶bnitz;200;300;300
 74044;Kahla, Stadt;235;320;330
 74045;Karlsdorf;200;300;300
 74046;Kleinbockedra;200;300;300
@@ -794,16 +794,16 @@
 74051;Lehesten;200;300;300
 74052;Lindig;200;300;300
 74053;Lippersdorf-Erdmannsdorf;200;300;300
-74054;Löberschütz;200;300;300
+74054;LÃ¶berschÃ¼tz;200;300;300
 74055;Mertendorf;200;300;300
 74056;Meusebach;200;300;300
 74057;Milda;200;300;300
-74058;Möckern;200;300;300
-74059;Mörsdorf;200;300;280
+74058;MÃ¶ckern;200;300;300
+74059;MÃ¶rsdorf;200;300;280
 74061;Nausnitz;200;300;300
-74063;Neuengönna;200;300;300
+74063;NeuengÃ¶nna;200;300;300
 74064;Oberbodnitz;200;300;300
-74065;Orlamünde, Stadt;235;320;320
+74065;OrlamÃ¼nde, Stadt;235;320;320
 74066;Ottendorf;200;300;300
 74067;Petersberg;235;320;330
 74068;Poxdorf;200;300;300
@@ -813,15 +813,15 @@
 74073;Rauschwitz;215;300;300
 74074;Rausdorf;200;300;300
 74075;Reichenbach;235;320;320
-74076;Reinstädt;200;300;300
+74076;ReinstÃ¤dt;200;300;300
 74077;Renthendorf;200;300;300
 74079;Rothenstein;200;300;320
 74081;Ruttersdorf-Lotschen;200;300;300
 74082;Scheiditz;200;300;300
 74084;Schleifreisen;300;300;300
-74085;Schlöben;200;300;300
-74086;Schöngleina;235;320;400
-74087;Schöps;200;300;325
+74085;SchlÃ¶ben;200;300;300
+74086;SchÃ¶ngleina;235;320;400
+74087;SchÃ¶ps;200;300;325
 74088;Seifartsdorf;200;300;300
 74089;Seitenroda;200;300;300
 74091;Serba;200;300;320
@@ -835,19 +835,19 @@
 74099;Thierschneck;200;300;300
 74101;Tissa;200;300;300
 74102;Trockenborn-Wolfersdorf;200;300;300
-74103;Tröbnitz;235;320;320
+74103;TrÃ¶bnitz;235;320;320
 74104;Unterbodnitz;200;300;300
 74105;Waldeck;200;300;320
 74106;Walpernhain;200;300;300
 74107;Waltersdorf;235;320;320
-74108;Weißbach;200;300;300
-74109;Weißenborn;200;300;320
+74108;WeiÃŸbach;200;300;300
+74109;WeiÃŸenborn;200;300;320
 74112;Wichmar;200;300;300
 74113;Zimmern;200;300;300
-74114;Zöllnitz;200;300;300
-74116;Schkölen, Stadt;200;300;300
+74114;ZÃ¶llnitz;200;300;300
+74116;SchkÃ¶len, Stadt;200;300;300
 75000;Landkreis Saale-Orla-Kreis;227;308;318
-75002;Birkenhügel;200;300;300
+75002;BirkenhÃ¼gel;200;300;300
 75003;Blankenberg;200;300;300
 75004;Blankenstein;200;300;300
 75006;Bodelwitz;200;300;300
@@ -857,17 +857,17 @@
 75012;Chursdorf;200;300;320
 75013;Crispendorf;235;320;320
 75014;Dittersdorf;235;320;320
-75016;Döbritz;200;300;300
+75016;DÃ¶britz;200;300;300
 75017;Dragensdorf;200;300;320
 75018;Dreba;200;300;250
 75019;Dreitzsch;240;300;300
-75021;Ebersdorf/Thüringen;235;320;320
-75023;Eßbach;300;300;300
+75021;Ebersdorf/ThÃ¼ringen;235;320;320
+75023;EÃŸbach;300;300;300
 75029;Geroda;240;300;300
 75031;Gertewitz;200;300;300
-75033;Görkwitz;200;300;320
-75034;Göschitz;200;300;320
-75035;Gössitz;200;300;300
+75033;GÃ¶rkwitz;200;300;320
+75034;GÃ¶schitz;200;300;320
+75035;GÃ¶ssitz;200;300;300
 75039;Grobengereuth;200;300;250
 75042;Harra;200;300;300
 75046;Hirschberg, Stadt;235;320;320
@@ -880,10 +880,10 @@
 75057;Lemnitz;240;300;300
 75061;Linda b. Neustadt an der Orla;200;300;300
 75062;Lobenstein, Moorbad, Stadt;230;330;350
-75063;Löhma;200;300;320
+75063;LÃ¶hma;200;300;320
 75065;Miesitz;240;300;350
-75066;Mittelpöllnitz;240;300;300
-75068;Moßbach;200;300;320
+75066;MittelpÃ¶llnitz;240;300;300
+75068;MoÃŸbach;200;300;320
 75069;Moxa;200;200;400
 75071;Neundorf (bei Lobenstein);200;300;400
 75072;Neundorf (bei Schleiz);200;300;320
@@ -896,8 +896,8 @@
 75081;Peuschen;200;300;300
 75082;Pillingsdorf;240;300;350
 75083;Plothen;235;320;320
-75084;Pörmitz;200;300;320
-75085;Pößneck, Stadt;200;310;320
+75084;PÃ¶rmitz;200;300;320
+75085;PÃ¶ÃŸneck, Stadt;200;310;320
 75086;Pottiga;200;300;300
 75087;Quaschwitz;200;300;280
 75088;Ranis, Stadt;235;320;320
@@ -907,26 +907,26 @@
 75098;Schleiz, Stadt;250;300;320
 75099;Schmieritz;240;300;300
 75101;Schmorda;200;200;300
-75102;Schöndorf;300;300;300
+75102;SchÃ¶ndorf;300;300;300
 75103;Seisla;200;300;300
 75105;Solkwitz;200;300;300
 75106;Stanau;200;300;300
 75109;Tegau;200;300;320
-75114;Tömmelsdorf;240;300;300
+75114;TÃ¶mmelsdorf;240;300;300
 75116;Triptis, Stadt;240;300;320
 75119;Volkmannsdorf;300;300;300
 75121;Weira;200;300;300
 75124;Wernburg;200;300;300
 75125;Wilhelmsdorf;200;300;300
-75127;Ziegenrück, Stadt;215;300;300
-75129;Krölpa;200;300;300
+75127;ZiegenrÃ¼ck, Stadt;215;300;300
+75129;KrÃ¶lpa;200;300;300
 75131;Gefell, Stadt;300;320;320
 75132;Tanna, Stadt;215;300;300
 75133;Wurzbach, Stadt;240;340;270
 75134;Remptendorf;300;300;300
 76000;Landkreis Greiz;220;306;309
 76002;Auma, Stadt;200;300;300
-76003;Bad Köstritz, Stadt;200;300;300
+76003;Bad KÃ¶stritz, Stadt;200;300;300
 76004;Berga/Elster, Stadt;300;300;330
 76006;Bethenhausen;200;300;300
 76007;Bocka;300;400;320
@@ -935,21 +935,21 @@
 76011;Braunsdorf;200;300;300
 76012;Caaschwitz;235;320;320
 76014;Crimla;200;300;300
-76017;Endschütz;235;320;320
+76017;EndschÃ¼tz;235;320;320
 76019;Gauern;250;320;350
-76021;Göhren-Döhlen;200;300;300
+76021;GÃ¶hren-DÃ¶hlen;200;300;300
 76022;Greiz, Stadt;200;300;300
-76023;Großenstein;230;330;330
+76023;GroÃŸenstein;230;330;330
 76024;Hain;215;300;300
 76026;Hartmannsdorf;200;300;300
 76027;Hilbersdorf;200;300;300
 76028;Hirschfeld;200;300;400
 76029;Hohenleuben, Stadt;250;330;330
-76031;Hohenölsen;235;320;350
+76031;HohenÃ¶lsen;235;320;350
 76033;Hundhaupten;200;300;300
 76034;Kauern;200;300;300
-76036;Korbußen;200;300;300
-76038;Kühdorf;200;300;250
+76036;KorbuÃŸen;200;300;300
+76038;KÃ¼hdorf;200;300;250
 76039;Langenwetzendorf;250;300;300
 76041;Langenwolschendorf;200;300;300
 76042;Lederhose;300;400;320
@@ -958,19 +958,19 @@
 76045;Lunzig;215;320;300
 76046;Merkendorf;215;300;300
 76047;Mohlsdorf;200;320;300
-76049;Münchenbernsdorf, Stadt;300;400;320
+76049;MÃ¼nchenbernsdorf, Stadt;300;400;320
 76051;Neugernsdorf;200;300;300
-76052;Neumühle/Elster;100;200;170
+76052;NeumÃ¼hle/Elster;100;200;170
 76055;Paitzdorf;235;320;320
-76058;Pölzig;200;300;300
-76059;Reichstädt;200;300;300
+76058;PÃ¶lzig;200;300;300
+76059;ReichstÃ¤dt;200;300;300
 76061;Ronneburg, Stadt;300;320;330
-76062;Rückersdorf;235;320;320
+76062;RÃ¼ckersdorf;235;320;320
 76064;Saara;200;300;300
-76065;Schömberg;230;320;320
+76065;SchÃ¶mberg;230;320;320
 76067;Schwaara;200;300;300
 76068;Schwarzbach;200;300;300
-76069;Seelingstädt;235;320;320
+76069;SeelingstÃ¤dt;235;320;320
 76071;Silberfeld;215;300;300
 76072;Staitz;220;300;300
 76073;Steinsdorf;200;300;350
@@ -978,16 +978,16 @@
 76075;Teichwolframsdorf;200;300;300
 76077;Triebes, Stadt;215;300;300
 76079;Weida, Stadt;250;300;340
-76081;Weißendorf;215;300;300
+76081;WeiÃŸendorf;215;300;300
 76082;Wiebelsdorf;200;300;300
 76083;Wildetaube;200;310;270
-76084;Wünschendorf/Elster;200;300;300
+76084;WÃ¼nschendorf/Elster;200;300;300
 76085;Zadelsdorf;200;300;300
 76086;Zedlitz;200;300;300
 76087;Zeulenroda, Stadt;200;300;300
-76088;Harth-Pöllnitz;200;300;300
+76088;Harth-PÃ¶llnitz;200;300;300
 76089;Kraftsdorf;200;300;300
-76091;Vogtländisches Oberland;200;300;310
+76091;VogtlÃ¤ndisches Oberland;200;300;310
 77000;Landkreis Altenburger Land;218;331;311
 77001;Altenburg, Stadt;300;372;320
 77002;Altkirchen;200;300;300
@@ -996,20 +996,20 @@
 77005;Fockendorf;200;300;300
 77006;Frohnsdorf;200;300;400
 77007;Gerstenberg;200;300;350
-77008;Göhren;200;300;250
-77009;Göllnitz;215;300;300
-77011;Göpfersdorf;200;300;300
-77012;Gößnitz, Stadt;200;300;300
-77013;Großröda;200;300;200
+77008;GÃ¶hren;200;300;250
+77009;GÃ¶llnitz;215;300;300
+77011;GÃ¶pfersdorf;200;300;300
+77012;GÃ¶ÃŸnitz, Stadt;200;300;300
+77013;GroÃŸrÃ¶da;200;300;200
 77015;Haselbach;200;300;350
 77016;Heukewalde;300;300;250
 77017;Heyersdorf;200;300;300
 77018;Jonaswalde;200;300;300
-77019;Jückelberg;200;300;400
+77019;JÃ¼ckelberg;200;300;400
 77022;Kriebitzsch;200;300;300
 77023;Langenleuba-Niederhain;200;300;300
-77026;Löbichau;200;300;290
-77027;Lödla;200;300;280
+77026;LÃ¶bichau;200;300;290
+77027;LÃ¶dla;200;300;280
 77028;Lucka, Stadt;200;300;300
 77029;Lumpzig;300;300;300
 77031;Mehna;275;300;250
@@ -1017,17 +1017,17 @@
 77034;Monstab;200;300;300
 77035;Naundorf;200;300;200
 77036;Nobitz;200;300;300
-77037;Nöbdenitz;200;300;290
+77037;NÃ¶bdenitz;200;300;290
 77039;Ponitz;200;300;300
 77041;Posterstein;200;300;295
 77042;Rositz;200;300;300
-77043;Schmölln, Stadt;220;320;300
+77043;SchmÃ¶lln, Stadt;220;320;300
 77044;Starkenberg;200;300;310
 77046;Tegkwitz;200;300;250
 77047;Thonhausen;200;300;300
 77048;Treben;200;300;300
 77049;Vollmershain;200;300;300
-77051;Wildenbörten;200;300;290
+77051;WildenbÃ¶rten;200;300;290
 77052;Windischleuba;220;310;320
 77053;Wintersdorf;235;320;320
 77055;Ziegelheim;200;300;300

@@ -19,7 +19,9 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using org.GraphDefined.Vanaheimr.Illias;
 using org.GraphDefined.OpenDataAPI.OverpassAPI;
@@ -62,6 +64,37 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
     }
 
+    public struct Hebesaetze
+    {
+
+        public String Id;
+        public String Name;
+        public Int16  Jahr;
+        public Int16  GrundsteuerA;
+        public Int16  GrundsteuerB;
+        public Int16  Gewerbesteuer;
+
+        public Hebesaetze(String _Id,
+                          String _Name,
+                          Int16  _Jahr,
+                          Int16  _GrundsteuerA,
+                          Int16  _GrundsteuerB,
+                          Int16  _Gewerbesteuer)
+        {
+            Id             = _Id;
+            Name           = _Name;
+            Jahr           = _Jahr;
+            GrundsteuerA   = _GrundsteuerA;
+            GrundsteuerB   = _GrundsteuerB;
+            Gewerbesteuer = _Gewerbesteuer;
+        }
+
+        public override String ToString()
+        {
+            return "'" + Name + "' (" + Id + ") in " + Jahr;
+        }
+
+    }
 
     /// <summary>
     /// A little demo... can be tested via http://overpass-turbo.eu
@@ -99,6 +132,61 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             Directory.CreateDirectory("Flächennutzung/Gewerbe");
             Directory.CreateDirectory("Flächennutzung/Wohngebiete");
             Directory.CreateDirectory("Flächennutzung/Militär");
+
+
+            #region Hebesätze der Gemeinden
+
+            // http://www.statistik.thueringen.de/datenbank/TabAnzeige.asp?tabelle=GE001613%7C%7CHebes%E4tze+der+Gemeinden&startpage=99&csv=&richtung=&sortiere=&vorspalte=0&tit2=&TIS=&SZDT=&anzahlH=-1&fontgr=12&mkro=&AnzeigeAuswahl=&XLS=&auswahlNr=&felder=0&felder=1&felder=2&zeit=2013%7C%7C99
+
+            var Hebesaetze_Jahr_Id = new Dictionary<Int16, Dictionary<String, Hebesaetze>>();
+
+            Directory.EnumerateFiles("Hebesätze der Gemeinden", "*.csv").ForEach(InFile => {
+
+                //OpenGPG.CreateSignature(File.OpenRead (InFile),
+                //                        File.OpenWrite(InFile.Replace(".csv", ".sig")),
+                //                        SecretKey,
+                //                        Passphrase,
+                //                        HashAlgorithms.Sha512,
+                //                        ArmoredOutput: true);
+
+                //OpenGPG.CreateSignature(File.OpenRead (InFile),
+                //                        File.OpenWrite(InFile.Replace(".csv", ".bsig")),
+                //                        SecretKey,
+                //                        Passphrase,
+                //                        HashAlgorithms.Sha512,
+                //                        ArmoredOutput: false);
+
+                // 55000;Weimar, Stadt;296;400;400
+
+                var Splitter  = new Char[1] { ';' };
+                var Splitted  = new String[0];
+
+                var Jahr      = Int16.Parse(InFile.Replace("Hebesätze der Gemeinden\\Hebesätze der Gemeinden_", "").
+                                                   Replace(".csv", ""));
+
+                Dictionary<String, Hebesaetze> Id_Hebesaetze;
+
+                foreach (var Line in File.ReadLines(InFile))
+                {
+
+                    Splitted = Line.Split(Splitter, StringSplitOptions.None);
+
+                    if (!Hebesaetze_Jahr_Id.TryGetValue(Jahr, out Id_Hebesaetze))
+                        Id_Hebesaetze = Hebesaetze_Jahr_Id.AddAndReturnValue(Jahr, new Dictionary<String, Hebesaetze>());
+
+                    Id_Hebesaetze.Add(Splitted[0], new Hebesaetze(Splitted[0],
+                                                                  Splitted[1],
+                                                                  Jahr,
+                                                                  Int16.Parse(Splitted[2]),
+                                                                  Int16.Parse(Splitted[3]),
+                                                                  Int16.Parse(Splitted[4])));
+
+                }
+
+
+            });
+
+            #endregion
 
 
             #region Gemeinschaftsanlage
@@ -611,7 +699,6 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             // http://wiki.openstreetmap.org/wiki/DE:Gemeindegrenze
             // http://wiki.openstreetmap.org/wiki/DE:Grenze#Kommunale_Ebene_-_Ortsgrenzen_admin_level.3D7-9
             // http://kahla.de/cms/index.php?page=Gewerbesteuer-Allgemeine-Informationen
-            // http://www.statistik.thueringen.de/datenbank/TabAnzeige.asp?tabelle=GE001613%7C%7CHebes%E4tze+der+Gemeinden&startpage=99&csv=&richtung=&sortiere=&vorspalte=0&tit2=&TIS=&SZDT=&anzahlH=-1&fontgr=12&mkro=&AnzeigeAuswahl=&XLS=&auswahlNr=&felder=0&felder=1&felder=2&zeit=2013%7C%7C99
 
             new OverpassQuery(ThüringenId).
                 WithRelations("boundary",    "administrative").
@@ -1349,27 +1436,7 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             // -----------------------------------------------------------------
 
-            #region Hebesätze der Gemeinden
 
-            Directory.EnumerateFiles("Hebesätze der Gemeinden").ForEach(InFile => {
-
-                OpenGPG.CreateSignature(File.OpenRead (InFile),
-                                        File.OpenWrite(InFile.Replace(".csv", ".sig")),
-                                        SecretKey,
-                                        Passphrase,
-                                        HashAlgorithms.Sha512,
-                                        ArmoredOutput: true);
-
-                OpenGPG.CreateSignature(File.OpenRead (InFile),
-                                        File.OpenWrite(InFile.Replace(".csv", ".bsig")),
-                                        SecretKey,
-                                        Passphrase,
-                                        HashAlgorithms.Sha512,
-                                        ArmoredOutput: false);
-
-            });
-
-            #endregion
 
             Console.WriteLine("ready...");
             Console.ReadLine();
