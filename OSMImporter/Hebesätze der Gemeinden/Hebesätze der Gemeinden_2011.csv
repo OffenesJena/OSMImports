@@ -496,3 +496,435 @@
 70011;Elgersburg;300;400;380
 70012;Elleben;330;330;330
 70013;Elxleben;300;300;300
+70014;Frankenhain;300;400;400
+70015;Frauenwald;296;400;400
+70016;Friedersdorf;235;320;320
+70017;Gehlberg;300;400;400
+70018;Gehren, Stadt;275;390;360
+70019;Geraberg;250;350;320
+70021;Geschwenda;300;400;400
+70022;Gillersdorf;235;320;320
+70023;Gossel;215;325;325
+70024;Gräfenroda;300;400;400
+70025;Großbreitenbach, Stadt;235;320;310
+70027;Herschdorf;235;320;320
+70028;Ichtershausen;300;300;300
+70029;Ilmenau, Stadt;275;440;420
+70031;Kirchheim;330;330;330
+70032;Langewiesen, Stadt;296;380;380
+70033;Liebenstein;300;400;400
+70034;Martinroda;300;350;320
+70035;Möhrenbach;275;390;360
+70037;Neusiß;200;300;300
+70038;Neustadt am Rennsteig;275;390;360
+70041;Osthausen-Wülfershausen;250;320;320
+70042;Pennewitz;275;390;360
+70043;Plaue, Stadt;300;400;400
+70044;Rockhausen;300;300;300
+70046;Schmiedefeld am Rennsteig;296;400;400
+70048;Stadtilm, Stadt;200;300;350
+70049;Stützerbach;296;400;400
+70051;Wachsenburggemeinde;350;400;400
+70052;Wildenspring;200;300;300
+70053;Wipfratal;270;390;330
+70054;Witzleben;300;320;320
+70055;Wolfsberg;250;350;350
+70056;Ilmtal;300;400;400
+71000;Landkreis Weimarer Land;274;374;318
+71001;Apolda, Stadt;295;395;357
+71002;Auerstedt;300;380;320
+71003;Bad Berka, Stadt;200;391;320
+71004;Bad Sulza, Stadt;300;400;320
+71005;Ballstedt;271;389;357
+71006;Bechstedtstraß;271;389;357
+71007;Berlstedt;271;389;357
+71008;Blankenhain, Stadt;271;389;357
+71009;Buchfart;200;300;300
+71011;Buttelstedt, Stadt;271;389;360
+71012;Daasdorf a. Berge;271;389;357
+71013;Döbritschen;240;330;330
+71015;Eberstedt;350;400;250
+71017;Ettersburg;271;389;357
+71018;Flurstedt;300;300;300
+71019;Frankendorf;220;300;300
+71021;Gebstedt;250;300;320
+71022;Großheringen;200;300;240
+71023;Großobringen;271;389;357
+71025;Großschwabhausen;270;360;310
+71027;Hammerstedt;215;300;300
+71028;Heichelheim;271;389;357
+71031;Hetschburg;230;330;330
+71032;Hohenfelden;200;300;300
+71034;Hopfgarten;230;350;350
+71036;Isseroda;200;300;350
+71037;Kapellendorf;200;300;300
+71038;Kiliansroda;215;300;300
+71039;Kleinobringen;271;389;400
+71042;Kleinschwabhausen;260;360;357
+71043;Klettbach;271;389;357
+71044;Ködderitzsch;340;330;360
+71046;Kranichfeld, Stadt;240;335;335
+71047;Krautheim;271;389;357
+71048;Kromsdorf;300;300;300
+71049;Lehnstedt;215;300;300
+71051;Leutenthal;290;400;400
+71052;Liebstedt;300;400;360
+71053;Magdala, Stadt;270;320;325
+71054;Mattstedt;300;400;360
+71055;Mechelroda;230;300;280
+71056;Mellingen;200;300;300
+71057;Mönchenholzhausen;271;389;357
+71059;Nauendorf;200;300;300
+71061;Neumark, Stadt;270;390;360
+71062;Niederreißen;300;400;360
+71063;Niederroßla;300;400;330
+71064;Niedertrebra;300;400;300
+71065;Niederzimmern;220;330;320
+71066;Nirmsdorf;300;350;340
+71067;Nohra;271;389;357
+71068;Oberreißen;300;350;340
+71069;Obertrebra;300;300;300
+71071;Oettern;215;300;300
+71072;Oßmannstedt;300;300;360
+71073;Ottstedt a. Berge;271;389;357
+71074;Pfiffelbach;350;350;350
+71076;Ramsla;220;330;330
+71077;Rannstedt;300;400;400
+71078;Reisdorf;400;500;360
+71079;Rittersdorf;200;300;300
+71081;Rohrbach;271;400;400
+71082;Sachsenhausen;270;330;350
+71083;Schmiedehausen;300;400;357
+71085;Schwerstedt;271;389;357
+71087;Tonndorf;200;300;300
+71088;Troistedt;271;389;357
+71089;Umpferstedt;220;300;300
+71092;Vippachedelhausen;271;389;357
+71093;Vollersroda;300;300;300
+71094;Wickerstedt;300;300;300
+71095;Wiegendorf;280;330;330
+71096;Willerstedt;300;400;330
+71097;Wohlsborn;271;389;357
+71099;Saaleplatte;300;390;320
+72000;Landkreis Sonneberg;306;340;339
+72001;Bachfeld;300;389;357
+72002;Effelder-Rauenstein;300;320;300
+72005;Föritz;300;300;320
+72006;Goldisthal;-;-;400
+72009;Judenbach;300;300;300
+72011;Lauscha, Stadt;300;389;357
+72012;Mengersgereuth-Hämmern;300;300;300
+72013;Neuhaus am Rennweg, Stadt;292;329;335
+72014;Neuhaus-Schierschnitz;300;300;300
+72015;Schalkau, Stadt;300;389;357
+72016;Scheibe-Alsbach;300;389;357
+72017;Siegmundsburg;300;320;320
+72018;Sonneberg, Stadt;345;345;350
+72019;Steinach, Stadt;300;389;357
+72022;Oberland am Rennsteig;300;300;300
+73000;Landkreis Saalfeld-Rudolstadt;265;369;351
+73001;Allendorf;215;300;300
+73002;Altenbeuthen;300;340;330
+73005;Bad Blankenburg, Stadt;271;389;357
+73006;Bechstedt;200;300;300
+73013;Cursdorf;280;350;380
+73014;Deesbach;271;389;357
+73017;Döschnitz;200;300;300
+73021;Dröbischau;230;330;340
+73028;Gräfenthal, Stadt;320;350;350
+73035;Hohenwarte;200;100;350
+73036;Kamsdorf;300;300;350
+73037;Katzhütte;271;389;357
+73038;Kaulsdorf;235;325;357
+73042;Königsee, Stadt;300;300;357
+73046;Lehesten, Stadt;271;389;357
+73049;Lichte;250;389;357
+73054;Mellenbach-Glasbach;271;389;357
+73055;Meura;271;389;357
+73056;Meuselbach-Schwarzmühle;271;345;345
+73063;Oberhain;200;300;300
+73065;Oberweißbach/Thür. Wald, Stadt;235;350;340
+73066;Piesau;215;250;300
+73067;Probstzella;271;389;357
+73068;Reichmannsdorf;300;390;360
+73074;Rohrbach;271;389;357
+73075;Rottenbach;250;300;310
+73076;Rudolstadt, Stadt;271;389;370
+73077;Saalfeld/Saale, Stadt;267;388;357
+73079;Schmiedefeld;250;320;360
+73082;Schwarzburg;271;389;357
+73084;Sitzendorf;215;300;300
+73094;Unterweißbach;280;390;360
+73101;Wittgendorf;200;300;300
+73105;Remda-Teichel, Stadt;271;389;357
+73106;Leutenberg, Stadt;300;389;357
+73107;Drognitz;271;389;357
+73108;Saalfelder Höhe;300;400;400
+73109;Uhlstädt-Kirchhasel;270;390;360
+73111;Unterwellenborn;200;300;340
+74000;Landkreis Saale-Holzland-Kreis;259;375;354
+74001;Albersdorf;200;300;320
+74002;Altenberga;200;300;300
+74003;Bad Klosterlausnitz;200;300;300
+74004;Bibra;200;300;300
+74005;Bobeck;200;300;300
+74006;Bollberg;271;389;357
+74007;Bremsnitz;271;389;357
+74008;Bucha;300;389;357
+74009;Bürgel, Stadt;271;389;357
+74011;Dornburg-Camburg, Stadt;280;390;360
+74012;Crossen an der Elster;271;389;357
+74016;Eichenberg;200;300;300
+74017;Eineborn;200;300;300
+74018;Eisenberg, Stadt;271;389;370
+74019;Frauenprießnitz;271;389;357
+74021;Freienorla;270;390;360
+74022;Geisenhain;200;300;200
+74024;Gneus;200;300;300
+74025;Gösen;200;300;300
+74026;Golmsdorf;271;389;357
+74028;Graitschen b. Bürgel;200;300;300
+74029;Großbockedra;200;300;300
+74031;Großeutersdorf;271;389;357
+74032;Großlöbichau;271;389;357
+74033;Großpürschütz;271;389;400
+74034;Gumperda;271;389;357
+74036;Hainichen;271;389;357
+74037;Hainspitz;235;320;370
+74038;Hartmannsdorf;271;389;357
+74039;Heideland;271;389;357
+74041;Hermsdorf, Stadt;280;390;360
+74042;Hummelshain;271;389;357
+74043;Jenalöbnitz;271;389;357
+74044;Kahla, Stadt;280;390;400
+74045;Karlsdorf;271;389;357
+74046;Kleinbockedra;200;300;200
+74047;Kleinebersdorf;271;389;357
+74048;Kleineutersdorf;271;389;357
+74049;Laasdorf;271;389;357
+74051;Lehesten;271;389;357
+74052;Lindig;271;389;357
+74053;Lippersdorf-Erdmannsdorf;271;389;357
+74054;Löberschütz;200;300;300
+74055;Mertendorf;200;300;300
+74056;Meusebach;200;300;300
+74057;Milda;271;389;357
+74058;Möckern;200;300;300
+74059;Mörsdorf;200;300;260
+74061;Nausnitz;200;300;300
+74063;Neuengönna;280;390;360
+74064;Oberbodnitz;200;300;300
+74065;Orlamünde, Stadt;271;389;357
+74066;Ottendorf;271;389;357
+74067;Petersberg;235;320;350
+74068;Poxdorf;200;300;300
+74069;Quirla;240;340;300
+74071;Rattelsdorf;235;320;320
+74072;Rauda;271;389;357
+74073;Rauschwitz;215;300;300
+74074;Rausdorf;200;300;300
+74075;Reichenbach;271;389;357
+74076;Reinstädt;271;389;357
+74077;Renthendorf;271;389;357
+74079;Rothenstein;271;389;357
+74081;Ruttersdorf-Lotschen;250;375;350
+74082;Scheiditz;271;389;357
+74084;Schleifreisen;300;340;357
+74085;Schlöben;271;389;357
+74086;Schöngleina;235;320;400
+74087;Schöps;200;300;325
+74089;Seitenroda;240;370;330
+74091;Serba;271;389;357
+74092;Silbitz;271;389;357
+74093;St.Gangloff;235;320;320
+74094;Stadtroda, Stadt;271;389;357
+74095;Sulza;200;300;300
+74096;Tautenburg;271;389;357
+74097;Tautendorf;200;300;300
+74098;Tautenhain;271;389;357
+74099;Thierschneck;200;300;300
+74101;Tissa;200;300;300
+74102;Trockenborn-Wolfersdorf;200;300;300
+74103;Tröbnitz;271;389;357
+74104;Unterbodnitz;200;300;300
+74105;Waldeck;271;389;357
+74106;Walpernhain;271;389;357
+74107;Waltersdorf;235;320;320
+74108;Weißbach;271;389;357
+74109;Weißenborn;271;389;357
+74112;Wichmar;271;389;357
+74113;Zimmern;271;389;357
+74114;Zöllnitz;271;389;357
+74116;Schkölen, Stadt;271;389;357
+75000;Landkreis Saale-Orla-Kreis;263;377;355
+75002;Birkenhügel;240;330;340
+75003;Blankenberg;271;389;357
+75004;Blankenstein;271;350;357
+75006;Bodelwitz;271;389;357
+75008;Bucha;200;300;250
+75009;Burgk;200;300;300
+75012;Chursdorf;200;300;320
+75013;Crispendorf;270;350;320
+75014;Dittersdorf;235;320;320
+75016;Döbritz;200;300;300
+75018;Dreba;200;300;250
+75019;Dreitzsch;240;300;300
+75023;Eßbach;300;350;357
+75029;Geroda;259;321;320
+75031;Gertewitz;200;300;300
+75033;Görkwitz;200;300;320
+75034;Göschitz;200;300;320
+75035;Gössitz;271;300;357
+75039;Grobengereuth;200;300;250
+75042;Harra;220;325;315
+75046;Hirschberg, Stadt;271;389;357
+75047;Keila;270;300;400
+75048;Kirschkau;200;300;320
+75049;Knau;271;389;400
+75051;Kospoda;270;380;360
+75054;Langenorla;271;389;357
+75056;Lausnitz b. Neustadt an der Orla;200;300;200
+75057;Lemnitz;271;389;357
+75061;Linda b. Neustadt an der Orla;270;380;360
+75062;Bad Lobenstein, Stadt;300;420;395
+75063;Löhma;200;300;320
+75065;Miesitz;240;300;350
+75066;Mittelpöllnitz;271;389;300
+75068;Moßbach;271;389;357
+75069;Moxa;271;280;500
+75071;Neundorf (bei Lobenstein);250;350;375
+75072;Neundorf (bei Schleiz);200;300;320
+75073;Neustadt an der Orla, Stadt;259;379;360
+75074;Nimritz;200;300;300
+75075;Oberoppurg;200;300;300
+75076;Oettersdorf;200;300;320
+75077;Oppurg;270;350;360
+75079;Paska;271;389;357
+75081;Peuschen;300;389;360
+75082;Pillingsdorf;271;389;357
+75083;Plothen;260;360;360
+75084;Pörmitz;270;390;360
+75085;Pößneck, Stadt;271;389;357
+75086;Pottiga;271;389;357
+75087;Quaschwitz;200;300;280
+75088;Ranis, Stadt;271;389;357
+75093;Rosendorf;271;389;357
+75097;Schlegel;230;330;330
+75098;Schleiz, Stadt;271;389;357
+75099;Schmieritz;240;300;300
+75101;Schmorda;270;300;360
+75102;Schöndorf;300;389;357
+75103;Seisla;271;389;357
+75105;Solkwitz;271;389;357
+75106;Stanau;270;380;360
+75109;Tegau;200;300;320
+75114;Tömmelsdorf;271;389;357
+75116;Triptis, Stadt;271;389;357
+75119;Volkmannsdorf;300;300;300
+75121;Weira;235;320;320
+75124;Wernburg;280;390;360
+75125;Wilhelmsdorf;300;380;360
+75127;Ziegenrück, Stadt;271;389;357
+75129;Krölpa;300;400;400
+75131;Gefell, Stadt;300;389;357
+75132;Tanna, Stadt;271;389;330
+75133;Wurzbach, Stadt;271;389;357
+75134;Remptendorf;300;400;360
+75135;Saalburg-Ebersdorf, Stadt;235;320;320
+76000;Landkreis Greiz;248;346;325
+76003;Bad Köstritz, Stadt;271;389;357
+76004;Berga/Elster, Stadt;300;390;360
+76006;Bethenhausen;200;300;300
+76007;Bocka;300;400;360
+76008;Brahmenau;271;389;400
+76009;Braunichswalde;271;389;357
+76012;Caaschwitz;271;389;357
+76014;Crimla;200;300;300
+76017;Endschütz;271;389;357
+76019;Gauern;280;400;370
+76022;Greiz, Stadt;200;300;300
+76023;Großenstein;271;389;357
+76024;Hain;215;300;300
+76026;Hartmannsdorf;250;400;300
+76027;Hilbersdorf;280;400;360
+76028;Hirschfeld;271;389;357
+76029;Hohenleuben, Stadt;271;389;357
+76031;Hohenölsen;271;389;380
+76033;Hundhaupten;280;390;360
+76034;Kauern;271;389;357
+76036;Korbußen;200;300;300
+76038;Kühdorf;200;300;250
+76039;Langenwetzendorf;300;400;400
+76041;Langenwolschendorf;235;320;320
+76042;Lederhose;300;400;360
+76043;Linda b. Weida;271;389;357
+76044;Lindenkreuz;280;390;360
+76045;Lunzig;271;389;380
+76047;Mohlsdorf;250;370;350
+76049;Münchenbernsdorf, Stadt;300;400;360
+76051;Neugernsdorf;200;300;220
+76052;Neumühle/Elster;280;390;360
+76055;Paitzdorf;271;389;357
+76058;Pölzig;200;300;300
+76059;Reichstädt;200;300;300
+76061;Ronneburg, Stadt;300;390;360
+76062;Rückersdorf;235;320;320
+76064;Saara;280;390;360
+76065;Schömberg;230;320;320
+76067;Schwaara;200;300;300
+76068;Schwarzbach;280;390;360
+76069;Seelingstädt;271;389;357
+76073;Steinsdorf;300;400;380
+76074;Teichwitz;235;300;310
+76075;Teichwolframsdorf;250;370;350
+76079;Weida, Stadt;250;370;340
+76081;Weißendorf;235;320;320
+76083;Wildetaube;255;355;380
+76084;Wünschendorf/Elster;271;389;320
+76086;Zedlitz;280;390;360
+76087;Zeulenroda-Triebes, Stadt;222;315;320
+76088;Harth-Pöllnitz;200;300;300
+76089;Kraftsdorf;271;389;300
+76091;Vogtländisches Oberland;200;300;310
+76092;Auma-Weidatal, Stadt;214;309;304
+77000;Landkreis Altenburger Land;246;362;338
+77001;Altenburg, Stadt;300;372;365
+77002;Altkirchen;200;300;300
+77003;Dobitschen;300;300;250
+77004;Drogen;200;300;250
+77005;Fockendorf;271;389;357
+77006;Frohnsdorf;271;389;400
+77007;Gerstenberg;271;389;357
+77008;Göhren;200;300;250
+77009;Göllnitz;215;300;300
+77011;Göpfersdorf;200;300;380
+77012;Gößnitz, Stadt;271;389;357
+77013;Großröda;200;300;200
+77015;Haselbach;271;389;357
+77016;Heukewalde;300;389;357
+77017;Heyersdorf;200;300;300
+77018;Jonaswalde;275;390;360
+77019;Jückelberg;271;389;400
+77022;Kriebitzsch;270;390;350
+77023;Langenleuba-Niederhain;200;300;300
+77026;Löbichau;240;345;330
+77027;Lödla;270;400;350
+77028;Lucka, Stadt;280;390;360
+77029;Lumpzig;300;300;300
+77031;Mehna;275;300;250
+77032;Meuselwitz, Stadt;271;389;357
+77034;Monstab;250;400;300
+77036;Nobitz;270;370;360
+77037;Nöbdenitz;275;389;365
+77039;Ponitz;200;300;300
+77041;Posterstein;280;390;360
+77042;Rositz;270;390;350
+77043;Schmölln, Stadt;220;320;300
+77044;Starkenberg;200;300;250
+77047;Thonhausen;220;320;320
+77048;Treben;271;389;357
+77049;Vollmershain;271;389;357
+77051;Wildenbörten;271;389;357
+77052;Windischleuba;271;370;357
+77055;Ziegelheim;271;389;357
+77056;Saara;200;300;300

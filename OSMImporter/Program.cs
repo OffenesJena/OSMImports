@@ -28,6 +28,7 @@ using org.GraphDefined.OpenDataAPI.OverpassAPI;
 
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using Org.BouncyCastle.Bcpg;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -67,26 +68,26 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
     public struct Hebesaetze
     {
 
-        public String Id;
+        public UInt32 Id;
         public String Name;
-        public Int16  Jahr;
-        public Int16  GrundsteuerA;
-        public Int16  GrundsteuerB;
-        public Int16  Gewerbesteuer;
+        public UInt16 Jahr;
+        public UInt16 GrundsteuerA;
+        public UInt16 GrundsteuerB;
+        public UInt16 Gewerbesteuer;
 
-        public Hebesaetze(String _Id,
+        public Hebesaetze(UInt32 _Id,
                           String _Name,
-                          Int16  _Jahr,
-                          Int16  _GrundsteuerA,
-                          Int16  _GrundsteuerB,
-                          Int16  _Gewerbesteuer)
+                          UInt16 _Jahr,
+                          UInt16 _GrundsteuerA,
+                          UInt16 _GrundsteuerB,
+                          UInt16 _Gewerbesteuer)
         {
             Id             = _Id;
             Name           = _Name;
             Jahr           = _Jahr;
             GrundsteuerA   = _GrundsteuerA;
             GrundsteuerB   = _GrundsteuerB;
-            Gewerbesteuer = _Gewerbesteuer;
+            Gewerbesteuer  = _Gewerbesteuer;
         }
 
         public override String ToString()
@@ -136,9 +137,22 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
 
             #region Hebesätze der Gemeinden
 
+            //new OverpassQuery(ThüringenId).
+            //    // Bei admin_level = 8 fehlen die großen Städte!
+            //    WithRelations("boundary",    "administrative").And("admin_level", "8").
+            //    WithRelations("boundary",    "administrative").And("name",        "Eisenach").
+            //    WithRelations("boundary",    "administrative").And("name",        "Erfurt").
+            //    WithRelations("boundary",    "administrative").And("name",        "Weimar").
+            //    WithRelations("boundary",    "administrative").And("name",        "Jena").
+            //    WithRelations("boundary",    "administrative").And("name",        "Gera").
+            //    WithRelations("boundary",    "administrative").And("name",        "Suhl").
+            //    RunAll       ("Gebietsgrenzen/Thüringen_Gemeinden",
+            //                  SecretKey, Passphrase);
+
             // http://www.statistik.thueringen.de/datenbank/TabAnzeige.asp?tabelle=GE001613%7C%7CHebes%E4tze+der+Gemeinden&startpage=99&csv=&richtung=&sortiere=&vorspalte=0&tit2=&TIS=&SZDT=&anzahlH=-1&fontgr=12&mkro=&AnzeigeAuswahl=&XLS=&auswahlNr=&felder=0&felder=1&felder=2&zeit=2013%7C%7C99
 
-            var Hebesaetze_Jahr_Id = new Dictionary<Int16, Dictionary<String, Hebesaetze>>();
+            var Hebesaetze_Jahr_Id  = new Dictionary<UInt16, Dictionary<UInt32, Hebesaetze>>();
+            var Hebesaetze_Id_Jahr  = new Dictionary<UInt32, Dictionary<UInt16, Hebesaetze>>();
 
             Directory.EnumerateFiles("Hebesätze der Gemeinden", "*.csv").ForEach(InFile => {
 
@@ -156,35 +170,87 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
                 //                        HashAlgorithms.Sha512,
                 //                        ArmoredOutput: false);
 
-                // 55000;Weimar, Stadt;296;400;400
-
                 var Splitter  = new Char[1] { ';' };
                 var Splitted  = new String[0];
 
-                var Jahr      = Int16.Parse(InFile.Replace("Hebesätze der Gemeinden\\Hebesätze der Gemeinden_", "").
-                                                   Replace(".csv", ""));
+                var Jahr      = UInt16.Parse(InFile.Replace("Hebesätze der Gemeinden\\Hebesätze der Gemeinden_", "").
+                                                    Replace(".csv", ""));
 
-                Dictionary<String, Hebesaetze> Id_Hebesaetze;
+                UInt32                           Id;
+                Hebesaetze                         _Hebesaetze;
+                Dictionary<UInt32, Hebesaetze>   Id_Hebesaetze;
+                Dictionary<UInt16, Hebesaetze> Jahr_Hebesaetze;
 
                 foreach (var Line in File.ReadLines(InFile))
                 {
 
-                    Splitted = Line.Split(Splitter, StringSplitOptions.None);
+                    Splitted  = Line.Split(Splitter, StringSplitOptions.None);
+                    Id        = UInt32.Parse(Splitted[0]);
 
                     if (!Hebesaetze_Jahr_Id.TryGetValue(Jahr, out Id_Hebesaetze))
-                        Id_Hebesaetze = Hebesaetze_Jahr_Id.AddAndReturnValue(Jahr, new Dictionary<String, Hebesaetze>());
+                        Id_Hebesaetze   = Hebesaetze_Jahr_Id.AddAndReturnValue(Jahr, new Dictionary<UInt32, Hebesaetze>());
 
-                    Id_Hebesaetze.Add(Splitted[0], new Hebesaetze(Splitted[0],
-                                                                  Splitted[1],
-                                                                  Jahr,
-                                                                  Int16.Parse(Splitted[2]),
-                                                                  Int16.Parse(Splitted[3]),
-                                                                  Int16.Parse(Splitted[4])));
+                    if (!Hebesaetze_Id_Jahr.TryGetValue(Id,   out Jahr_Hebesaetze))
+                        Jahr_Hebesaetze = Hebesaetze_Id_Jahr.AddAndReturnValue(Id,   new Dictionary<UInt16, Hebesaetze>());
+
+                    UInt16 GrundsteuerA;
+                    UInt16 GrundsteuerB;
+                    UInt16 Gewerbesteuer;
+
+                    UInt16.TryParse(Splitted[2], out GrundsteuerA);
+                    UInt16.TryParse(Splitted[3], out GrundsteuerB);
+                    UInt16.TryParse(Splitted[4], out Gewerbesteuer);
+
+                    _Hebesaetze = new Hebesaetze(Id,
+                                                 Splitted[1],
+                                                 Jahr,
+                                                 GrundsteuerA,
+                                                 GrundsteuerB,
+                                                 Gewerbesteuer);
+
+                      Id_Hebesaetze.Add(Id,   _Hebesaetze);
+                    Jahr_Hebesaetze.Add(Jahr, _Hebesaetze);
 
                 }
 
-
             });
+
+            var Gemeinden_JSON = JObject.Parse(File.ReadAllText("Gebietsgrenzen/Thüringen_Gemeinden.geojson"));
+            Dictionary<UInt16, Hebesaetze> HebesätzeNachJahr = null;
+            UInt16 ExportJahr = 20130;
+
+            foreach (var GeoJSONFeature in Gemeinden_JSON["features"].Children<JObject>())
+            {
+
+                // 16 == Thüringen
+                //  0 == Regierungsbezirke (gibt's aber in Thüringen nicht)
+                var AmtlicherGemeindeschluessel = UInt32.Parse(GeoJSONFeature["properties"]["de:amtlicher_gemeindeschluessel"].Value<String>().Replace("160", ""));
+
+                if (Hebesaetze_Id_Jahr.TryGetValue(AmtlicherGemeindeschluessel, out HebesätzeNachJahr))
+                {
+
+                    var GeoJSON_Properties = GeoJSONFeature["properties"] as JObject;
+
+                    GeoJSON_Properties.
+                        Add("Hebesätze", new JObject(HebesätzeNachJahr.
+                                                         Values.
+                                                         Select(v => new JProperty(v.Jahr.ToString(),
+                                                             new JObject(new JProperty("GrundsteuerA", v.GrundsteuerA),
+                                                                         new JProperty("GrundsteuerB",  v.GrundsteuerB),
+                                                                         new JProperty("Gewerbesteuer", v.Gewerbesteuer))))));
+
+                    // Nur für CartoDB!
+                    //if (HebesätzeNachJahr.ContainsKey(ExportJahr)) {
+                    //    GeoJSON_Properties.Add("GrundsteuerA_"  + ExportJahr, HebesätzeNachJahr[ExportJahr].GrundsteuerA);
+                    //    GeoJSON_Properties.Add("GrundsteuerB_"  + ExportJahr, HebesätzeNachJahr[ExportJahr].GrundsteuerB);
+                    //    GeoJSON_Properties.Add("Gewerbesteuer_" + ExportJahr, HebesätzeNachJahr[ExportJahr].Gewerbesteuer);
+                    //}
+
+                }
+
+            }
+
+            File.WriteAllText("Gebietsgrenzen/Thüringen_Gemeinden_mitHebesätzen_" + ExportJahr + ".geojson", Gemeinden_JSON.ToString());
 
             #endregion
 
