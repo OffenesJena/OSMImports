@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using org.GraphDefined.Vanaheimr.Illias;
+using org.GraphDefined.Vanaheimr.BouncyCastle;
 
 namespace org.GraphDefined.OpenDataAPI.OverpassAPI
 {
@@ -25,14 +26,14 @@ namespace org.GraphDefined.OpenDataAPI.OverpassAPI
                                                 UInt32              BufferSize     = 2*1024*1024) // 2 MByte
         {
 
-            org.GraphDefined.Vanaheimr.BouncyCastle.OpenGPG.
+            org.GraphDefined.Vanaheimr.BouncyCastle.OpenPGP.
                 CreateSignature(new MemoryStream(JSON.Result.ToString().ToUTF8Bytes()),
-                                File.OpenWrite(OutputFile),
                                 SecretKey,
                                 Passphrase,
                                 HashAlgorithm,
-                                ArmoredOutput,
-                                BufferSize);
+                                BufferSize).
+
+                WriteTo(File.OpenWrite(OutputFile), ArmoredOutput);
 
             return JSON;
 

@@ -115,9 +115,10 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             var ThüringenId = new OverpassQuery("Thüringen").AreaId;
             //var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-test-secring.gpg"));
             //var Passphrase  = File.ReadAllText("jod-test-passphrase.txt");
-            var SecretKey   = OpenGPG.ReadSecretKey(File.OpenRead("jod-official-secring.gpg"));
+            var SecretKey   = OpenPGP.ReadSecretKey(File.OpenRead("jod-official-secring.gpg"));
             var Passphrase  = File.ReadAllText("jod-official-passphrase.txt");
 
+            Directory.CreateDirectory("Getränke");
             Directory.CreateDirectory("Gemeinschaftsanlage");
             Directory.CreateDirectory("Freizeit");
             Directory.CreateDirectory("Gebäude");
@@ -134,6 +135,16 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             Directory.CreateDirectory("Flächennutzung/Gewerbe");
             Directory.CreateDirectory("Flächennutzung/Wohngebiete");
             Directory.CreateDirectory("Flächennutzung/Militär");
+
+
+            #region Freizeit
+
+            new OverpassQuery(JenaId).
+                WithAny      ("drink:club-mate").
+                RunAll       ("Getränke/club-mate",
+                              SecretKey, Passphrase);
+
+            #endregion
 
 
             #region Hebesätze der Gemeinden
@@ -1502,8 +1513,6 @@ namespace org.GraphDefined.OpenDataAPI.OSMImporter
             #endregion
 
             // -----------------------------------------------------------------
-
-
 
             Console.WriteLine("ready...");
             Console.ReadLine();
